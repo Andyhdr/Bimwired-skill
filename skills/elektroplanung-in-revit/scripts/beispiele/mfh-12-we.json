@@ -1,0 +1,83 @@
+{
+  "netzbetreiber": "standard",
+  "gebaeudetyp": "mfh",
+  "reserve": 10,
+  "wohneinheiten": [
+    {
+      "bezeichnung": "3-Zimmer",
+      "anzahl": 8,
+      "el_warmwasser": false,
+      "dle_kw": 21
+    },
+    {
+      "bezeichnung": "2-Zimmer mit DLE",
+      "anzahl": 4,
+      "el_warmwasser": true,
+      "dle_kw": 21
+    }
+  ],
+  "nutzflaechen": [
+    {
+      "nutzung": "buero",
+      "flaeche": 0,
+      "w_pro_m2": 30,
+      "g": 0.7
+    }
+  ],
+  "sonderlasten": [
+    {
+      "bezeichnung": "Sauna",
+      "p_kw": 0,
+      "cos_phi": 1,
+      "g": 1,
+      "einphasig": false
+    }
+  ],
+  "waermepumpe": {
+    "aktiv": true,
+    "anzahl": 1,
+    "pel_kw": 8,
+    "heizstab_kw": 6,
+    "heizstab_gleichzeitig": true,
+    "cos_phi": 0.95,
+    "g": 1
+  },
+  "lueftung": {
+    "aktiv": false,
+    "p_kw": 0.5,
+    "cos_phi": 0.9,
+    "g": 1
+  },
+  "klima": {
+    "aktiv": false,
+    "p_kw": 4,
+    "cos_phi": 0.9,
+    "g": 1
+  },
+  "aufzug": {
+    "aktiv": true,
+    "anzahl": 1,
+    "p_kw": 6.5,
+    "cos_phi": 0.85,
+    "g": 0.5
+  },
+  "allgemeinstrom": {
+    "aktiv": true,
+    "p_kw": 2,
+    "cos_phi": 0.95,
+    "g": 0.9
+  },
+  "e_mobilitaet": {
+    "aktiv": true,
+    "ladepunkte": 4,
+    "leistung_je_ladepunkt_kw": 11,
+    "lastmanagement": "statisch",
+    "max_summenleistung_kw": 22
+  },
+  "pv": {
+    "aktiv": true,
+    "kwp": 30,
+    "wechselrichter_kva": 27,
+    "einspeiseart": "ueberschuss"
+  }
+}
