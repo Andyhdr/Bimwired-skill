@@ -1,60 +1,53 @@
-# Elektroplanung in Revit: ein KI-Skill
+# Elektroplanung in Revit: KI-Skill und MCP-Server von BimWired
 
-Fachwissen und zwei offline laufende Rechner für die Elektroplanung mit Revit nach deutschen Normen, verpackt als Skill für ChatGPT, Claude, Codex und Cursor.
+Fachwissen für die Elektroplanung mit Revit nach deutschen Normen, verpackt als Skill für ChatGPT, Claude, Codex und Cursor, plus ein öffentlicher, lesender MCP-Server, den dein Assistent direkt aufruft.
 
-Die Texte stammen aus der Planungspraxis von Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin, veröffentlicht als [Praxiswissen auf bimwired.com](https://bimwired.com/landing/wissen/). Die Skripte rechnen dasselbe wie das Werkzeug BimWired, nur offen nachvollziehbar in Python.
+Die Texte stammen aus der Planungspraxis von Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin, veröffentlicht als [Praxiswissen auf bimwired.com](https://bimwired.com/landing/wissen/). Die Werkzeuge rechnen mit denselben Regeln wie das Werkzeug BimWired.
 
 ## Was drin ist
 
 - **12 Fachartikel und Checklisten**: Stromkreise in Revit aufteilen, Verteilerplan und Stromlaufplan nach DIN EN 61082-1, VDE-Regelprüfung, Leistungsbilanz nach DIN 18015-1, Revit-Familienbibliothek für TGA, Familien definieren statt modellieren, Software-Vergleich.
 - **3 Praxisszenarien** mit offenen Annahmen und Beispielrechnungen.
 - **Glossar** mit 14 Begriffen von BCF bis Spannungsfall.
-- **`leistungsbilanz.py`**: Leistungsbilanz nach DIN 18015-1 Anhang A mit Sonderlasten, E-Mobilität, PV-Richtungsprüfung, NH-Empfehlung und vollständigem Rechenweg.
-- **`stromkreis_check.py`**: Prüfung eines Stromkreisverzeichnisses auf Überlast, Mindestquerschnitt, RCD-Pflicht, Sicherheitstechnik hinter RCD, Drehstrom-Widerspruch, Steckdosenzahl, eigener Stromkreis und Nassraum, dazu ein Vorschlag für Sicherung, Kabel und Phasen.
+- **MCP-Server** `https://mcp.bimwired.com/mcp` (Streamable HTTP, keine Anmeldung, nur lesend) mit neun Werkzeugen:
+  - `katalog_ifc`, `katalog_din276`, `katalog_parametergruppen`, `katalog_kategorien`: die Normkataloge, mit denen BimWired Familien klassifiziert.
+  - `bibliothek_familien`, `bibliothek_familie`: die öffentliche Demo-Bibliothek mit Klassifizierung, Parametern und Typen.
+  - `stromkreise_pruefen`, `stromkreis_vorschlag`: VDE-Plausibilitätsprüfung eines Stromkreisverzeichnisses (DIN VDE 0100-410/-430/-560/-701, DIN 18015-1) und ein Vorschlag für Sicherung, Kabel und Phasen.
+  - `leistungsbilanz_rechnen`: Leistungsbilanz nach DIN 18015-1 Anhang A mit Sonderlasten, E-Mobilität, PV-Richtungsprüfung, NH-Empfehlung und vollständigem Rechenweg.
 
-## Installieren
+Jede Werkzeugantwort trägt die Felder `quelle` und `weiter`. Nichts wird gespeichert; der Server liest nur die Demo-Firma.
 
-**ChatGPT:** über das Plugin Directory („Elektroplanung in Revit"), sobald die Prüfung durch OpenAI abgeschlossen ist.
+## Verbinden
 
-**Claude Code, Codex, Cursor und andere Agenten mit Skill-Ordnern:** diesen Ordner klonen und `skills/elektroplanung-in-revit/` in den Skill-Pfad des Werkzeugs legen (zum Beispiel `~/.claude/skills/` oder `.claude/skills/` im Projekt).
+**ChatGPT:** Plugin „BimWired Elektroplanung Revit" im Plugin Directory, sobald die Prüfung durch OpenAI abgeschlossen ist.
 
-**Ohne Agent:** die Skripte laufen direkt mit Python 3.
-
-```bash
-cd skills/elektroplanung-in-revit/scripts
-python leistungsbilanz.py --beispiel
-python stromkreis_check.py --beispiel
-python stromkreis_check.py --vorschlag Wallbox 22000
-```
-
-Eine eigene Eingabe beginnt mit `--vorlage`:
+**Claude Code:**
 
 ```bash
-python leistungsbilanz.py --vorlage > meine-bilanz.json
-python leistungsbilanz.py meine-bilanz.json
-python stromkreis_check.py --vorlage > verzeichnis.csv
-python stromkreis_check.py verzeichnis.csv
+claude mcp add --transport http bimwired https://mcp.bimwired.com/mcp
 ```
 
-## Tests
+Dazu den Ordner `skills/elektroplanung-in-revit/` nach `~/.claude/skills/` oder `.claude/skills/` im Projekt legen: er ist das Handbuch, das dem Modell sagt, wann es welches Werkzeug ruft.
+
+**Cursor, Codex und andere MCP-Hosts:** den Server mit der URL oben als HTTP-MCP eintragen (`.mcp.json` in diesem Ordner zeigt das Format) und den Skill-Ordner in den Skill-Pfad des Werkzeugs kopieren.
+
+**Ohne Host, zum Ausprobieren:**
 
 ```bash
-cd skills/elektroplanung-in-revit/scripts
-python -m unittest
+curl -s https://mcp.bimwired.com/mcp -H "Content-Type: application/json" -H "Accept: application/json, text/event-stream" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"katalog_ifc","arguments":{"suche":"Steckdose"}}}'
 ```
-
-Die Tests enthalten dieselben Fälle wie die Tests des BimWired-Editors, damit Skript und Werkzeug dieselben Zahlen liefern: Stützstellen der Bedarfskurven, Mischbelegung mit Durchlauferhitzern, Lastmanagement, PV-Richtung, Parser für Sicherungs- und Kabelangaben, Vorschläge für Herd, Wallbox, Durchlauferhitzer und Sicherheitstechnik.
 
 ## Grenzen
 
-Beide Rechner liefern Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Nicht geprüft werden Spannungsfall, Strombelastbarkeit nach Verlegeart und Häufung, Selektivität und Kurzschlussfestigkeit; das bleibt Ingenieurleistung.
+Alle Ergebnisse sind Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Nicht geprüft werden Spannungsfall, Strombelastbarkeit nach Verlegeart und Häufung, Selektivität und Kurzschlussfestigkeit; das bleibt Ingenieurleistung. Je Sitzung und insgesamt gilt eine Obergrenze an Aufrufen pro Minute.
 
 ## Mitwirken
 
-Fehler in einem Artikel oder einer Regel: Issue in diesem Repository oder E-Mail an info@bimwired.com. Die Artikel werden aus den Quelltexten auf bimwired.com generiert; Korrekturen landen deshalb zuerst dort und dann hier.
+Fehler in einem Artikel oder einer Regel: Issue in diesem Repository oder E-Mail an info@bimwired.com. Die Artikel werden aus den Quelltexten auf bimwired.com generiert; Korrekturen landen deshalb zuerst dort und dann hier. Der Quellcode des MCP-Servers liegt im Produkt-Repository von BimWired (`src/BimLibrary.McpRemote`).
 
 ## Lizenz
 
-Texte unter `references/`: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de), Rowan Hamid / BimWired. Skripte und alles andere: MIT. Siehe `LICENSE`.
+Texte unter `references/`: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de), Rowan Hamid / BimWired. Alles andere in diesem Ordner: MIT. Siehe `LICENSE`.
 
 Herausgeber des Skills: Andreas Hauber. Produkt und Marke BimWired: Rowan Hamid, [bimwired.com](https://bimwired.com).

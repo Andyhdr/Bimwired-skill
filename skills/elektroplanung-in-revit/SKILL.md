@@ -5,7 +5,7 @@ description: Elektroplanung in Revit nach deutschen Normen (DIN 18015, DIN VDE 0
 
 # Elektroplanung in Revit
 
-Fachwissen und zwei deterministische Rechner für die Elektroplanung mit Revit nach deutschen Normen. Die Texte stammen aus der Planungspraxis von Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin (B.Sc. Architektur), Inhaberin von BimWired; die Skripte rechnen dasselbe wie das Werkzeug BimWired, offen nachvollziehbar und ohne Netzverbindung.
+Fachwissen und Werkzeuge für die Elektroplanung mit Revit nach deutschen Normen. Die Texte stammen aus der Planungspraxis von Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin (B.Sc. Architektur), Inhaberin von BimWired; die Werkzeuge sind der öffentliche MCP-Server von BimWired (https://mcp.bimwired.com/mcp), der dieselben Kataloge und Prüfungen bereitstellt wie das Produkt, lesend und ohne Konto.
 
 ## Wann dieser Skill greift
 
@@ -17,37 +17,29 @@ Fachwissen und zwei deterministische Rechner für die Elektroplanung mit Revit n
 ## So arbeitest du
 
 1. **Erst lesen, dann antworten.** Öffne `references/INDEX.md` und lade die ein bis zwei passenden Dateien. Jede Referenz nennt im Front-Matter die Fragen, die sie beantwortet.
-2. **Zahlen aus dem Skript, nicht aus dem Kopf.** Für eine Leistungsbilanz oder eine Prüfung eines Stromkreisverzeichnisses führe das passende Skript aus (unten). Gib den Rechenweg aus der Skriptausgabe wieder, nicht eine eigene Schätzung.
+2. **Zahlen aus dem Werkzeug, nicht aus dem Kopf.** Für eine Leistungsbilanz, die Prüfung eines Stromkreisverzeichnisses, eine IFC-Klasse oder eine Familie rufe das passende MCP-Werkzeug auf (unten). Gib den Rechenweg und die Befunde aus der Werkzeugantwort wieder, nicht eine eigene Schätzung. Fehlt der MCP-Server im Host, sage das und antworte nur aus den Referenzen.
 3. **Normbezug nennen, Normtext nicht abschreiben.** Die Referenzen zitieren Normen mit Ausgabedatum (zum Beispiel DIN 18015-1:2020-05). Nenne die Norm, erkläre die Regel in eigenen Worten, reproduziere keine Normtabellen über das hinaus, was in den Referenzen steht.
 4. **Grenzen sagen.** Eine Leistungsbilanz ist Planungsgrundlage, keine Genehmigung; verbindlich sind TAB und Anschlusszusage des Netzbetreibers. Die Stromkreisprüfung ersetzt keinen Spannungsfall-, Selektivitäts- oder Kurzschlussnachweis. Sage das, wenn jemand ein Ergebnis als Nachweis verwenden will.
 5. **Quelle angeben.** Wenn du aus einer Referenz antwortest, nenne am Ende die Quelle aus ihrem Fußtext (Autorin und URL). Eine Zeile reicht.
 6. **Sprache des Nutzers.** Antworte auf Deutsch, wenn die Frage deutsch ist, sonst in der Sprache der Frage; Fachbegriffe wie Verteilerplan, Stromkreisverzeichnis, RCD, Leistungsbilanz bleiben deutsch und werden beim ersten Auftreten kurz erklärt.
 
-## Skripte
+## Werkzeuge (MCP-Server von BimWired)
 
-Beide Skripte brauchen nur Python 3 (Standardbibliothek) und laufen offline.
+Der Server ist unter https://mcp.bimwired.com/mcp erreichbar (Streamable HTTP, keine Anmeldung, nur lesend; in `agents/openai.yaml` als Abhängigkeit eingetragen). Jede Antwort trägt die Felder `quelle` und `weiter`; nenne die Quelle am Ende deiner Antwort.
 
-### Leistungsbilanz nach DIN 18015-1
+- `katalog_ifc`: IFC-Klassen mit deutschem Namen, Gewerken und PredefinedTypes; Suchwort und Gewerk als Filter.
+- `katalog_din276`: DIN-276-Kostengruppen mit Code und Bezeichnung; Suchwort als Filter.
+- `katalog_parametergruppen`: Revit-Parametergruppen mit Id und deutschem Namen.
+- `katalog_kategorien`: Revit-Kategorien je Gewerk (heizung, lueftung, klima, sanitaer, elektro, msr).
+- `bibliothek_familien`: Familien der öffentlichen Demo-Bibliothek: Name, Gewerk, Montage, Kategorie, Typen; Suchwort, Gewerk und Limit.
+- `bibliothek_familie`: Eine Familie im Detail: Klassifizierung (IFC, PredefinedType, DIN 276), Parameter, Typenkatalog.
+- `stromkreise_pruefen`: VDE-Plausibilitätsprüfung eines Stromkreisverzeichnisses (Überlast, Mindestquerschnitt, RCD-Pflicht, Sicherheitstechnik hinter RCD, Drehstrom, Steckdosenzahl, eigener Stromkreis, Nassraum, Kreise je RCD).
+- `stromkreis_vorschlag`: Sicherung, Kabel und Phasen für einen Stromkreis aus Funktion und Anschlusswert.
+- `leistungsbilanz_rechnen`: Leistungsbilanz nach DIN 18015-1 mit Bilanztabelle, Rechenweg, NH-Empfehlung und Hinweisen.
 
-```bash
-python scripts/leistungsbilanz.py --beispiel            # Beispiel: 12 WE, Wärmepumpe, 4 Ladepunkte
-python scripts/leistungsbilanz.py eingabe.json          # eigene Eingabe
-python scripts/leistungsbilanz.py eingabe.json --json   # Ergebnis als JSON
-python scripts/leistungsbilanz.py --vorlage > eingabe.json   # leere Eingabedatei erzeugen
-```
+Eingabe für `stromkreise_pruefen`: eine Liste von Stromkreisen mit `nummer`, `funktion` (Licht, Steckdose, Gerät, Herd, Durchlauferhitzer, Wallbox, Außenbereich, RWA, BMZ, EMZ, Brandschutztür, ...), `sicherung` (B16A, 30mA/B16A, C32A, D02/35A, NH00/80A), `kabel` (NYM-J 3x1,5 mm²), `phasen` (1 oder 3), `leistungVa`, `elemente` (Anzahl), `raeume` (Liste), `drehstrom` (true/false), `gruppenRcd` (RCD des Gruppenkopfs, zum Beispiel "FI 30mA", leer ohne). Frage nach, was fehlt, statt zu raten; Sicherung und Kabel dürfen leer bleiben, dann meldet die Prüfung „nicht geprüft“.
 
-Eingabe: Wohneinheiten (Anzahl, elektrische Warmwasserbereitung), Gewerbeflächen (m², W/m², Gleichzeitigkeit), Wärmepumpe, Lüftung, Klima, Aufzug, Allgemeinstrom, E-Mobilität (Ladepunkte, Lastmanagement), PV, Reserve in Prozent, Netzbetreiber-Datensatz. Ausgabe: Bilanztabelle, Rechenweg Schritt für Schritt, Bemessungsstrom, NH-Empfehlung, Hinweise mit Normbezug. Fehlende Felder nehmen die Vorgabewerte der Vorlage.
-
-### Stromkreisverzeichnis prüfen
-
-```bash
-python scripts/stromkreis_check.py --beispiel                 # Beispielverzeichnis prüfen
-python scripts/stromkreis_check.py verzeichnis.csv            # CSV mit Semikolon oder Komma
-python scripts/stromkreis_check.py verzeichnis.json --json
-python scripts/stromkreis_check.py --vorschlag Steckdose 2300 # Sicherung, Kabel, Phasen für einen Kreis
-```
-
-Spalten je Stromkreis: `nummer`, `funktion` (Licht, Steckdose, Gerät, Herd, Durchlauferhitzer, Wallbox, Außenbereich, RWA, BMZ, EMZ, Brandschutztür, ...), `sicherung` (B16A, 30mA/B16A, C32A, D02/35A, NH00/80A), `kabel` (NYM-J 3x1,5 mm²), `phasen` (1 oder 3), `leistung_va`, `elemente` (Anzahl), `raeume` (durch Komma getrennt), `drehstrom` (ja/nein), `gruppen_rcd` (RCD des Gruppenkopfs, zum Beispiel "FI 30mA" oder "FI 300mA", leer ohne). Ausgabe: Befunde je Kreis mit Stufe (Warnung oder Hinweis), Text und Normbezug.
+Eingabe für `leistungsbilanz_rechnen`: `gebaeudetyp` (efh, mfh, mix, nwg), `wohneinheiten` (Anzahl, elektrische Warmwasserbereitung), Gewerbeflächen (m², W/m², Gleichzeitigkeit), Wärmepumpe, Lüftung, Klima, Aufzug, Allgemeinstrom, E-Mobilität (Ladepunkte, Lastmanagement), PV, `reserve` in Prozent, `netzbetreiber`. Fehlende Felder nehmen die Vorgaben des Editors; nenne die Annahmen in der Antwort.
 
 ## Referenzen
 
@@ -112,4 +104,4 @@ Praxisszenarien (modellhafte Rechenbeispiele mit offenen Annahmen) liegen unter 
 
 ## Herkunft
 
-Texte: Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin (B.Sc. Architektur), Inhaberin von BimWired, veröffentlicht unter https://bimwired.com/landing/wissen/ (CC BY 4.0). Skripte: MIT-Lizenz. Herausgeber des Skills: Andreas Hauber. Rückmeldungen und Korrekturen: info@bimwired.com.
+Texte: Rowan Hamid, Elektrofachplanerin und BIM-Koordinatorin (B.Sc. Architektur), Inhaberin von BimWired, veröffentlicht unter https://bimwired.com/landing/wissen/ (CC BY 4.0). Alles andere: MIT-Lizenz. Werkzeuge: MCP-Server von BimWired, Quellcode im Repository. Herausgeber des Skills: Andreas Hauber. Rückmeldungen und Korrekturen: info@bimwired.com.
