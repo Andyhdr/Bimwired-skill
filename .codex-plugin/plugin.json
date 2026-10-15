@@ -26,7 +26,7 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Elektroplanung in Revit",
+    "displayName": "BimWired Elektroplanung Revit",
     "shortDescription": "Stromkreise, VDE, DIN 18015",
     "longDescription": "Fachwissen und Rechner für die Elektroplanung mit Revit nach deutschen Normen, aus der Planungspraxis einer Elektrofachplanerin und BIM-Koordinatorin. Zwölf Fachartikel und Checklisten: Stromkreise in Revit aufteilen, Verteilerplan und Stromlaufplan normgerecht nach DIN EN 61082-1, VDE-Regelprüfung (RCD-Pflicht, Mindestquerschnitte, Überlast), Leistungsbilanz nach DIN 18015-1 mit Wärmepumpe, Wallbox und PV, Revit-Familienbibliothek für TGA mit IFC- und DIN-276-Klassifizierung, Software-Vergleich der Wege für deutsche Elektroplanung in Revit. Dazu drei Praxisszenarien mit offenen Annahmen und ein Glossar. Zwei offline laufende Python-Skripte rechnen die Leistungsbilanz mit vollständigem Rechenweg nach DIN 18015-1 Anhang A und prüfen ein Stromkreisverzeichnis auf Überlast, Querschnitt, RCD-Pflicht, Sicherheitstechnik hinter RCD und Drehstrom-Widersprüche. Alle Ergebnisse sind Planungsgrundlagen mit Normbezug; verbindlich bleiben TAB und Netzbetreiber.",
     "developerName": "Andreas Hauber",
