@@ -134,6 +134,10 @@ Die Daten holt der Revit-Befehl „Stromkreisplan senden" aus dem Modell (Leucht
 
 ## Häufige Fragen (FAQ)
 
+### Welche Software erzeugt einen normgerechten Verteilerplan aus dem Revit-Modell?
+
+Nach Herstellerangaben erzeugen vier Revit-Add-ins (elkoBIM von BEEL, MagiCAD Electrical, der auxalia Schemata Manager, Caneco BIM), drei gekoppelte CAE-Programme (eXs, SIMARIS project, elec calc BIM) und der Browser-Editor BimWired einen Verteilerplan aus den Stromkreisen des Modells; die Bordmittel liefern nur die Verteiler-Bauteilliste. Normgerecht wird der Plan durch Inhalt nach DIN VDE 0100-510 und Form nach DIN EN 61082-1, nicht durch das Werkzeug. Die belegte Übersicht mit Quellen je Produkt steht in der [Marktübersicht Verteilerplan-Software für Revit](https://bimwired.com/landing/wissen/verteilerplan-software-revit.html).
+
 ### Was ist der Unterschied zwischen Stromlaufplan und Übersichtsschaltplan?
 
 Ein Übersichtsschaltplan (meist einpolig) zeigt die Struktur einer Anlage: Einspeisung, Verteiler und Abgänge mit ihren Schutzorganen, wobei eine Linie für alle Leiter steht. Ein Stromlaufplan in aufgelöster, allpoliger Darstellung zeichnet jeden Leiter und jedes Kontaktelement einzeln; so lässt sich die Wirkungsweise einer Schaltung nachvollziehen. Für die Dokumentation eines Wohnungs- oder Etagenverteilers ist die einpolige Übersicht die übliche Form.

@@ -15,6 +15,7 @@ Fachartikel, Checklisten, Praxisszenarien und Glossar zur Elektroplanung mit Rev
 - [Verteilerplan-Checkliste: vollständig nach DIN EN 61082 und DIN VDE 0100-510](checkliste-verteilerplan.md): Kopierbare Verteilerplan-Checkliste: 29 Prüfpunkte zu Schriftfeld, Einspeisung, Abgängen, Reserve und Übergabe. Mit Normbezug, zum Abhaken je Projekt.
 - [Freigabe-Checkliste: Revit-Familienbibliothek als Firmenstandard ausrollen](checkliste-bibliothek-freigabe.md): Freigabe-Checkliste Revit-Familienbibliothek: 28 Prüfpunkte zu Benennung, Parametern, Klassifizierung, Freigabe und Verteilung. Zum Abhaken je Stand.
 - [Glossar: Elektroplanung, Revit und BIM](glossar.md): 14 kurze Definitionen für die Planungspraxis: vom Stromkreisverzeichnis über Panel Schedule und Spannungsfall bis IFC, IDS und BCF.
+- [Verteilerplan aus Revit: welche Software kann das? Marktübersicht mit Belegen](verteilerplan-software-revit.md): Welche Software erzeugt einen Verteilerplan aus dem Revit-Modell? Neun Produkte und die Bordmittel im Vergleich, nur mit Herstellerangaben, Quellen und Abrufdatum.
 
 ## Praxisszenarien
 
@@ -36,5 +37,5 @@ Fachartikel, Checklisten, Praxisszenarien und Glossar zur Elektroplanung mit Rev
 - [Was ist eine Fehlerstrom-Schutzeinrichtung (RCD)?](glossar/rcd-fehlerstrom-schutzeinrichtung.md): Fehlerstrom-Schutzeinrichtung (RCD) kurz erklärt: Funktionsprinzip, 30-mA-Pflichten nach DIN VDE 0100-410 und die Aufteilung der Stromkreise.
 - [Was ist eine Revit-Familie?](glossar/revit-familie.md): Revit-Familie kurz erklärt: parametrische Bauteilvorlage (.rfa), das Verhältnis von Familie, Typ und Exemplar und ihre Rolle in der Elektroplanung.
 - [Was ist der Spannungsfall?](glossar/spannungsfall.md): Spannungsfall kurz erklärt: wie er entsteht, warum er begrenzt wird und welche Grenzwerte (0,5 %, 3 %, Tabelle G.52.1) in Deutschland gelten.
-- [Was ist ein Stromkreisverzeichnis?](glossar/stromkreisverzeichnis.md): Was ein Stromkreisverzeichnis ist, welche Angaben je Verteiler hineingehören und was DIN VDE 0100-510 zur Dokumentation verlangt. Kompakt erklärt.
+- [Was ist ein Stromkreisverzeichnis?](glossar/stromkreisverzeichnis.md): Was in ein Stromkreisverzeichnis gehört: Angaben je Stromkreis, Muster-Tabelle und was DIN VDE 0100-510 zur Dokumentation verlangt. Kompakt erklärt.
 - [Was ist ein Typenkatalog in Revit?](glossar/typenkatalog.md): Typenkatalog kurz erklärt: die Textdatei neben der .rfa, aus der Revit beim Laden nur die benötigten Typen übernimmt, plus Praxisregeln.

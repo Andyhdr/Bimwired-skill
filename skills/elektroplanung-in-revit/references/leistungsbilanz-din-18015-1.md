@@ -137,6 +137,10 @@ Ein Revit-Modell ist nicht nötig. Die Bilanz entsteht komplett im Browser und b
 
 ## Häufige Fragen zur Leistungsbilanz
 
+### Wie berechne ich die Anschlussleistung für 12 Wohneinheiten mit Wärmepumpe und Wallboxen?
+
+Erst die Grundlast, dann jede Sonderlast einzeln. Die Grundlast der 12 Wohneinheiten lesen Sie aus der Bedarfskurve in Anhang A der DIN 18015-1:2020-05 ab, bei zentraler Warmwasserbereitung über die Wärmepumpe aus der Kurve ohne elektrische Warmwasserbereitung. Dazu addieren Sie mit jeweils eigener Gleichzeitigkeit die elektrische Aufnahmeleistung der Wärmepumpe samt Heizstab (gleichzeitig oder verriegelt), die Ladepunkte mit ihrer Ladegleichzeitigkeit beziehungsweise der Grenze des Lastmanagements, Aufzug und Allgemeinstrom sowie eine Reserve. Haushaltsgeräte stecken bereits in der Kurve, Photovoltaik senkt den Bezug nicht. Aus der Summe folgen Bemessungsstrom und Hausanschlusssicherung (mindestens 63 A nach VDE-AR-N 4100); verbindlich ist die Abstimmung mit dem Netzbetreiber nach dessen TAB. Ein durchgerechnetes Beispiel mit allen Annahmen zeigt das [Praxisszenario Leistungsbilanz im Mehrfamilienhaus](https://bimwired.com/landing/wissen/praxisszenario-leistungsbilanz-mfh.html).
+
 ### Ist die Leistungsbilanz nach DIN 18015-1 für den Netzbetreiber verbindlich?
 
 Nein. Die Bilanz nach DIN 18015-1 ist die anerkannte Planungsgrundlage für Wohngebäude. Über den Netzanschluss entscheidet aber der Netzbetreiber auf Basis seiner Technischen Anschlussbedingungen und der Anschlusszusage. Der BDEW stellt mit der TAB 2023 den Bundesmusterwortlaut bereit; verbindlich ist die örtliche Fassung Ihres Netzbetreibers.

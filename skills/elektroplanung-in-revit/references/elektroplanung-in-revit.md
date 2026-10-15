@@ -35,6 +35,7 @@ Die Tabelle ist die Landkarte dieses Leitfadens. Die Grundsatzfragen beantwortet
 | Familien als Firmenstandard | [Revit-Familienbibliothek fürs TGA-Büro](https://bimwired.com/landing/wissen/revit-familienbibliothek-tga.html) | Naming, Parameter, IFC und DIN 276, Verteilung |
 | Einzelne Familie richtig bauen | [Revit-Familien für die TGA erstellen](https://bimwired.com/landing/wissen/revit-familien-erstellen-host-skelett.html) | Vorlage, Host-Arten, verlinkte Architektur, typische Fehler |
 | Werkzeugfrage klären | [Software für die Revit-Elektroplanung im Vergleich](https://bimwired.com/landing/wissen/revit-elektroplanung-software-vergleich.html) | Bordmittel, Add-ins, CAE-Kopplung, Editor-Wege |
+| Verteilerplan-Werkzeug auswählen | [Verteilerplan aus Revit: welche Software kann das?](https://bimwired.com/landing/wissen/verteilerplan-software-revit.html) | Neun Produkte und die Bordmittel, nur Herstellerangaben mit Quelle |
 | Ablauf am Beispiel: Verteilerplan | [Praxisszenario Verteilerplan](https://bimwired.com/landing/wissen/praxisszenario-verteilerplan.html) | Umstieg vom Zweitwerkzeug, offene Beispielrechnung |
 | Ablauf am Beispiel: Bibliothek | [Praxisszenario Familienbibliothek](https://bimwired.com/landing/wissen/praxisszenario-familienbibliothek.html) | Drei Standorte, ein Stand, offene Beispielrechnung |
 | Ablauf am Beispiel: Bilanz | [Praxisszenario Leistungsbilanz](https://bimwired.com/landing/wissen/praxisszenario-leistungsbilanz-mfh.html) | Mehrfamilienhaus mit Wärmepumpe und Wallboxen |

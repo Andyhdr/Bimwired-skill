@@ -4,6 +4,7 @@ quelle: https://bimwired.com/landing/wissen/stromkreise-in-revit-planen.html
 stand: 2026-08-25
 art: artikel
 fragen:
+  - "Wie plane ich Stromkreise in Revit nach deutschen Normen?"
   - "Wie plane ich Stromkreise in Revit nach deutschen Konventionen?"
   - "Warum kann ich in Revit keinen Stromkreis anlegen?"
   - "Wie weise ich einem Verteiler in Revit ein Verteilersystem zu?"
@@ -126,6 +127,10 @@ Abbildung: Fenster „Stromkreisplan senden“ im Revit-Plugin: die erkannten El
 Zwei Dinge ersetzt BimWired absichtlich nicht: die Revit-Stromkreisfunktion selbst, denn der Editor arbeitet mit den gesendeten Elementdaten, und Ihre Fachentscheidung. Eine KI hilft nur beim Klassifizieren unerkannter Elemente, mit Konfidenzangabe und Vorschau; die Aufteilung bleibt regelbasiert, und Sie validieren das Ergebnis. Das ist mir wichtig, ich will kein Werkzeug, das der Planerin die Entscheidung abnimmt.
 
 ## Häufige Fragen (FAQ)
+
+### Wie plane ich Stromkreise in Revit nach deutschen Normen?
+
+In vier Schritten. Erstens legen Sie in den Elektro-Einstellungen Spannungen (230 V, 400 V) und Verteilersysteme an und geben jedem Verteiler einen Panel Name. Zweitens verwenden Sie Familien mit elektrischem Anschluss (Spannung, Polzahl, Scheinleistung in VA) und Schaltzeichen nach IEC 60617. Drittens fassen Sie Verbraucher zu Stromkreisen zusammen und ordnen sie je Verteiler zu; die Aufteilung folgt DIN 18015 und der Reihe DIN VDE 0100. Viertens erzeugen Sie die Dokumentation außerhalb der Bordmittel: Stromkreisverzeichnis und Verteilerplan nach DIN VDE 0100-510 und DIN EN 61082-1, denn der Panel Schedule ist eine US-Tabelle, und Revit prüft keine deutsche Norm. Die Regelprüfung (Überlast, RCD-Pflicht, Querschnitte) übernimmt ein Zusatzwerkzeug oder die Elektrofachkraft.
 
 ### Warum kann ich in Revit keinen Stromkreis anlegen?
 

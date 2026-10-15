@@ -56,6 +56,7 @@ Vollständige Liste mit Kurzbeschreibung in `references/INDEX.md`. Die wichtigst
 - `references/checkliste-verteilerplan.md`: Kopierbare Verteilerplan-Checkliste: 29 Prüfpunkte zu Schriftfeld, Einspeisung, Abgängen, Reserve und Übergabe. Mit Normbezug, zum Abhaken je Projekt.
 - `references/checkliste-bibliothek-freigabe.md`: Freigabe-Checkliste Revit-Familienbibliothek: 28 Prüfpunkte zu Benennung, Parametern, Klassifizierung, Freigabe und Verteilung. Zum Abhaken je Stand.
 - `references/glossar.md`: 14 kurze Definitionen für die Planungspraxis: vom Stromkreisverzeichnis über Panel Schedule und Spannungsfall bis IFC, IDS und BCF.
+- `references/verteilerplan-software-revit.md`: Welche Software erzeugt einen Verteilerplan aus dem Revit-Modell? Neun Produkte und die Bordmittel im Vergleich, nur mit Herstellerangaben, Quellen und Abrufdatum.
 
 Praxisszenarien (modellhafte Rechenbeispiele mit offenen Annahmen) liegen unter `references/praxis/`, Begriffsdefinitionen unter `references/glossar/`.
 
@@ -66,6 +67,7 @@ Praxisszenarien (modellhafte Rechenbeispiele mit offenen Annahmen) liegen unter 
 - Welche Normen muss ich für die Elektroplanung kennen?
 - Braucht Revit Zusatzsoftware für Verteilerpläne und VDE-Nachweise?
 - Wo fange ich mit der Elektroplanung in Revit an?
+- Wie plane ich Stromkreise in Revit nach deutschen Normen?
 - Wie plane ich Stromkreise in Revit nach deutschen Konventionen?
 - Warum kann ich in Revit keinen Stromkreis anlegen?
 - Wie weise ich einem Verteiler in Revit ein Verteilersystem zu?
@@ -87,6 +89,7 @@ Praxisszenarien (modellhafte Rechenbeispiele mit offenen Annahmen) liegen unter 
 - Senkt eine PV-Anlage die erforderliche Anschlussleistung?
 - Reichen 63 A für ein Wohngebäude mit Wallbox und Wärmepumpe?
 - Ist die Leistungsbilanz für den Netzbetreiber verbindlich?
+- Revit oder Spezialsoftware für die Elektroplanung in Deutschland?
 - Revit oder Spezialsoftware für die Elektroplanung?
 - Was können die Revit-Bordmittel in der Elektroplanung?
 - Wann lohnt sich ein Elektro-Add-in für Revit?
@@ -99,8 +102,6 @@ Praxisszenarien (modellhafte Rechenbeispiele mit offenen Annahmen) liegen unter 
 - Wie kommt ein neuer Bibliotheksstand auf alle Rechner?
 - Wie übernimmt man den Familien-Altbestand in eine neue Bibliothek?
 - Wie erstelle ich eine Revit-Familie für die TGA?
-- Welche Familienvorlage (.rft) ist die richtige?
-- Warum lässt sich eine wandbasierte Familie nicht an eine verlinkte Wand setzen?
 
 ## Herkunft
 

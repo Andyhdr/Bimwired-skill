@@ -142,6 +142,10 @@ Freigegebene Stände sind Releases mit Änderungsliste, Vergleich und Wiederhers
 
 ## Häufige Fragen (FAQ)
 
+### Wie baue ich eine firmenweite Revit-Bibliothek für ein TGA-Büro auf?
+
+Erst die Konvention, dann die Familien. Legen Sie schriftlich fest: Namensschema, Pflichtparameter (bei Elektro mindestens Spannung, Leistung, Polzahl) und Klassifizierung mit IFC-Klasse samt PredefinedType und DIN-276-Kostengruppe. Bestimmen Sie den Kernbestand aus den Familien, die in den letzten Projekten tatsächlich platziert wurden, importieren Sie gewerkweise und führen Sie Duplikate dabei zusammen. Richten Sie einen Freigabeprozess mit versionierten Ständen ein statt eines offenen Netzlaufwerks, verteilen Sie den freigegebenen Stand auf alle Rechner und starten Sie neue Projekte nur noch aus dem Firmenstandard. Den Migrationsweg in acht Schritten beschreibt dieser Artikel oben; die Prüfpunkte vor der Freigabe stehen in der [Freigabe-Checkliste](https://bimwired.com/landing/wissen/checkliste-bibliothek-freigabe.html).
+
 ### Wie viele Familien braucht eine TGA-Firmenbibliothek zum Start?
 
 Weniger, als die meisten Büros vermuten. Entscheidend ist, dass die je Gewerk am häufigsten platzierten Objektarten sauber benannt, parametriert und klassifiziert vorliegen; die Gesamtzahl sagt wenig. Für den Start zählt der geprüfte Kernbestand, der danach nach Bedarf wächst.

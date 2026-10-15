@@ -4,6 +4,7 @@ quelle: https://bimwired.com/landing/wissen/revit-elektroplanung-software-vergle
 stand: 2026-08-25
 art: artikel
 fragen:
+  - "Revit oder Spezialsoftware für die Elektroplanung in Deutschland?"
   - "Revit oder Spezialsoftware für die Elektroplanung?"
   - "Was können die Revit-Bordmittel in der Elektroplanung?"
   - "Wann lohnt sich ein Elektro-Add-in für Revit?"
@@ -67,6 +68,8 @@ Bei den Nachweisen kommt die deutlichste Aussage von einem Anbieter, der selbst 
 
 ## Weg 2: Was leisten Elektro-Add-ins und CAE-Kopplungen für Revit?
 
+Welche Produkte konkret ein Verteilerschema aus Revit-Stromkreisen erzeugen und was die Hersteller dazu belegen, listet die [Marktübersicht Verteilerplan-Software für Revit](https://bimwired.com/landing/wissen/verteilerplan-software-revit.html) auf; hier geht es um die Muster dahinter.
+
 Add-ins und Kopplungen setzen dort an, wo die Bordmittel aufhören: deutsche Schemata, Fachrechnungen, Massenauswertung. Es gibt zwei Muster. Ein Add-in arbeitet in Revit selbst, eine Kopplung tauscht Daten mit einer eigenständigen CAE-Software aus.
 
 Für den Add-in-Weg steht BEEL/elkoBIM. Der Anbieter betreibt einen deutschsprachigen Themenhub, der von Stromkreisen und Verteilern bis zu 2D-Schemen und Massenauswertung reicht, und positioniert sein Add-in elkoBIM als Antwort auf die Schema-Lücke, die er selbst benennt. MagiCAD erweitert Revit ebenfalls um Elektro-Funktionen; im tab-Advertorial sind Berechnungen wie Spannungsfall und Kabeldimensionierung das zentrale Argument. Für den Kopplungs-Weg steht der CAE-Hersteller eXs: Revit-Stromkreisdaten speisen automatisch erzeugte Verteilerpläne, Sicherungskennzeichen fließen nach Revit zurück, beworben als Schließen einer wichtigen Lücke im BIM-Prozess.
@@ -129,6 +132,10 @@ So gehen Sie die Entscheidung an:
 BimWired ist eine Cloud-Webanwendung mit Revit-Plugin für Revit 2025, 2026 und 2027, also ein modellgespeister Browser-Editor im Sinne dieses Vergleichs. Der Revit-Befehl „Stromkreisplan senden“ sammelt Leuchten, Schalter, Steckdosen und Elektrogeräte mit Raum, Ebene, Scheinleistung, Spannung und Polzahl. Im Browser bauen Sie Verteiler und Stromkreise auf, auf Wunsch mit automatischer Aufteilung in thematische Gruppen je Ebene. „Stromkreise übernehmen“ schreibt Stromkreisnummern und je nach Einstellung Verteiler, Sicherung, RCD, Kabel und Phasen zurück; fehlende Projektparameter legt das Plugin an. Der Verteilerplan entsteht als einpolige Übersicht nach DIN EN 61082-1 auf A3, als mehrseitiges Vektor-PDF und als DXF je Blatt. Deterministische Prüfungen melden Überlast, fehlende RCD-Zuordnung und zu geringe Querschnitte mit Bezügen zur DIN 18015. Ein optionaler KI-Prüfblick liefert höchstens zehn Hinweise als zweite Meinung; er ändert nichts am Plan und ist keine Normprüfung. Bewusst nicht enthalten sind Kabel- und Spannungsfallberechnung, Aufbauplan und Allpolig-Darstellung. Das ist Absicht: Ich wollte den Rundlauf zwischen Modell und Verteilerplan sauber lösen, nicht die CAE-Welt nachbauen.
 
 ## Häufige Fragen (FAQ)
+
+### Revit oder Spezialsoftware für die Elektroplanung in Deutschland?
+
+Beides trägt, die Antwort hängt am Büro. Revit ist der richtige Weg, wenn Auftraggeber BIM-Modelle verlangen oder die Koordination mit Architektur und HLS im Modell stattfindet; dann ergänzt ein Elektro-Add-in oder eine CAE-Kopplung (belegt sind elkoBIM von BEEL, MagiCAD Electrical und eXs von Mensch und Maschine) Schemata und Fachrechnungen, oder ein modellgespeister Editor wie BimWired übernimmt Stromkreise und Verteilerplan. TGA- oder CAE-Spezialsoftware bleibt die bessere Wahl für Büros mit CAE-Bestand und ohne BIM-Pflicht, weil die Nachweise nach DIN VDE dort entstehen. Einen generellen BIM-Zwang gibt es nicht: Laut Bundesingenieurkammer (2022) wenden 28 % der Ingenieurbüros BIM an. Die Büro-Profile weiter oben ordnen die vier typischen Ausgangslagen zu.
 
 ### Kann ich mit Revit-Bordmitteln einen deutschen Verteilerplan erstellen?
 
