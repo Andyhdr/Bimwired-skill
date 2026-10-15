@@ -1,6 +1,6 @@
 {
   "name": "bimwired-elektroplanung-revit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Elektroplanung in Revit nach deutschen Normen: Fachwissen zu Stromkreisen, Verteilerplan und Familienbibliothek, dazu MCP-Werkzeuge für Normkataloge, die Demo-Bibliothek, die Leistungsbilanz nach DIN 18015-1 und die Prüfung eines Stromkreisverzeichnisses.",
   "author": {
     "name": "Andreas Hauber",
