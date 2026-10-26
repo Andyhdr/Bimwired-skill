@@ -15,14 +15,14 @@ fragen:
 
 *Ein modellhaftes Szenario aus typischen Arbeitsabläufen deutscher Planungsbüros, kein Kundenbericht. Die Zahlen sind als Beispielrechnung gekennzeichnet.*
 
-In diesem Szenario führt ein TGA-Generalplaner mit 25 Mitarbeitenden an drei Standorten seine gewachsenen Familienablagen zu einer zentralen Revit-Bibliothek zusammen: Bestand per RFA-Sammelimport erfassen, Duplikate aussortieren, Parameter und Typen vereinheitlichen, den bereinigten Stand als Release freigeben und per Cloud-Update an alle Arbeitsplätze verteilen. Unter konservativen Annahmen liegt der Break-even zwischen dem 14. und dem 21. Monat; fällt die Zeitersparnis nur halb so hoch aus, trägt sich das Vorhaben über eingesparte Suchzeit allein nicht.
+In diesem Szenario führt ein TGA-Generalplaner mit 25 Mitarbeitenden an drei Standorten seine gewachsenen Familienablagen zu einer zentralen Revit-Bibliothek zusammen: Bestand per RFA-Sammelimport erfassen, Duplikate aussortieren, Parameter und Typen vereinheitlichen, den bereinigten Stand als Release freigeben und per Cloud-Update an alle Arbeitsplätze verteilen. Unter konservativen Annahmen liegt der Break-even zwischen dem 10. und dem 17. Monat; fällt die Zeitersparnis nur halb so hoch aus, trägt sich das Vorhaben über eingesparte Suchzeit allein nicht.
 
 ## Das Wichtigste in Kürze
 
 - Drei Standorte, drei Familienstände: dieselbe Familie liegt in mehreren Varianten mit abweichenden Parametern vor, und niemand weiß, welche gilt. Das Muster ist branchentypisch und belegt.
 - Der Weg hat fünf Stationen: RFA-Sammelimport mit Duplikat-Erkennung, Standard festziehen (Namen, Parameter, IFC, DIN 276), Herstellerdaten aus BMEcat oder CSV importieren, Release freigeben, Cloud-Update an jedem Arbeitsplatz.
 - Danach gibt es genau einen verbindlichen Stand: das freigegebene Release. Laufende Projekte ändern sich nie von allein; „Familien aktualisieren" wird je Projekt bewusst angestoßen.
-- Mit Konsolidierung und laufender Pflege liegt der Break-even im Modell zwischen Monat 14 und 21.
+- Mit Konsolidierung und laufender Pflege liegt der Break-even im Modell zwischen Monat 10 und 17.
 
 ## Ausgangslage: drei Standorte, drei Wahrheiten
 
@@ -56,7 +56,7 @@ Eine Beispielrechnung mit eigenen Annahmen, die ich bewusst konservativ gesetzt 
 | Angesetzte Ersparnis nach der Konsolidierung | 1 Stunde je Woche und Arbeitsplatz (Halbierung, nicht null) | eigene Annahme |
 | Arbeitswochen je Jahr | 42 | Urlaub, Krankheit, Feiertage abgezogen |
 
-Der Break-even liegt in diesem Modell zwischen dem 14. und dem 21.
+Der Break-even liegt in diesem Modell zwischen dem 10. und dem 17.
 
 Nicht eingerechnet sind Schulung und Einarbeitung des Teams, Mehraufwand bei schlechter Datenqualität des Bestands, projektspezifische Sonderfamilien außerhalb des Standards und die schwer bezifferbaren Qualitätseffekte: konsistente Bauteillisten, sauberere IFC-Abgaben, weniger Nacharbeit in Auswertungen. Diese Rechnung ist ein Modell, kein Erfahrungswert.
 
