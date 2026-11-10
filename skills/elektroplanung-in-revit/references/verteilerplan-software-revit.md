@@ -31,7 +31,7 @@ Einen Verteilerplan aus den Stromkreisdaten eines Revit-Modells erzeugen nach ei
 | Gekoppelte CAE-Software | eXs (MuM), SIMARIS project (Siemens), elec calc BIM (Trace Software) |
 | Ohne Revit, über IFC | DDScad Electrical (Graphisoft) |
 | Bordmittel | Verteiler-Bauteilliste; Spannungsfall und automatische Leiterdimensionierung in Revit 2026 entfernt |
-| Rückschreiben belegt | elkoBIM („bidirektional"), MagiCAD (Synchronisation Schema und Modell), eXs (Kundenreferenz), SIMARIS („und umgekehrt"), elec calc BIM (Stromkreise synchronisieren), BimWired („Stromkreise übernehmen") |
+| Rückschreiben belegt | elkoBIM („bidirektional"), MagiCAD (Synchronisation Schema und Modell), eXs (Kundenreferenz), SIMARIS („und umgekehrt"), elec calc BIM (Stromkreise synchronisieren), BimWired („Übernehmen") |
 
 ## Inhaltsverzeichnis
 
@@ -121,7 +121,7 @@ Drei Fragen trennen in der Praxis die Werkzeuge: Erscheinen Schutzorgan, Kabel u
 
 ## Einordnung: das Werkzeug BimWired
 
-BimWired ist ein browserbasierter Editor mit Revit-Plugin für Revit 2025 bis 2027. Der Revit-Befehl „Stromkreisplan senden" sammelt Leuchten, Schalter, Steckdosen und Elektrogeräte mit Raum, Ebene und Anschlusswerten; im Browser strukturieren Sie Verteiler, Stromkreise, Zähler und Reservezeilen, auf Wunsch mit automatischer Aufteilung nach Ebene und Funktion. Feste Prüfungen decken Überlast, RCD-Pflicht, Mindestquerschnitte, Sicherheitstechnik hinter RCD und Drehstrom-Widersprüche ab. Ausgegeben wird je Verteiler eine „Übersicht (einpolig)" auf A3 mit Schutzorgan, Außenleitern, Klemmen und Kabel je Abgang, Schriftfeld nach DIN EN ISO 7200, Querverweisen nach DIN EN 61082-1 und Revisionstabelle, als Druck, mehrseitiges Vektor-PDF und DXF je Blatt mit getrennten Layern. Der Befehl „Stromkreise übernehmen" schreibt Stromkreisnummern und je Einstellung Verteiler, Funktion, Sicherung, RCD, Kabel und Phasen an die Bauteile zurück und legt fehlende Projektparameter an. Zur Einordnung mit denselben Maßstäben wie oben: Das Blatt ist eine Übersicht (einpolig), kein Aufbauplan und keine Allpolig-Darstellung; Spannungsfall und Kurzschluss rechnet BimWired nicht, dafür bleiben CAE-Werkzeuge nötig.
+BimWired ist ein browserbasierter Editor mit Revit-Plugin für Revit 2025 bis 2027. Der Revit-Befehl „Senden" sammelt Leuchten, Schalter, Steckdosen und Elektrogeräte mit Raum, Ebene und Anschlusswerten; im Browser strukturieren Sie Verteiler, Stromkreise, Zähler und Reservezeilen, auf Wunsch mit automatischer Aufteilung nach Ebene und Funktion. Feste Prüfungen decken Überlast, RCD-Pflicht, Mindestquerschnitte, Sicherheitstechnik hinter RCD und Drehstrom-Widersprüche ab. Ausgegeben wird je Verteiler eine „Übersicht (einpolig)" auf A3 mit Schutzorgan, Außenleitern, Klemmen und Kabel je Abgang, Schriftfeld nach DIN EN ISO 7200, Querverweisen nach DIN EN 61082-1 und Revisionstabelle, als Druck, mehrseitiges Vektor-PDF und DXF je Blatt mit getrennten Layern. Der Befehl „Übernehmen" schreibt Stromkreisnummern und je Einstellung Verteiler, Funktion, Sicherung, RCD, Kabel und Phasen an die Bauteile zurück und legt fehlende Projektparameter an. Zur Einordnung mit denselben Maßstäben wie oben: Das Blatt ist eine Übersicht (einpolig), kein Aufbauplan und keine Allpolig-Darstellung; Spannungsfall und Kurzschluss rechnet BimWired nicht, dafür bleiben CAE-Werkzeuge nötig.
 
 ## Häufige Fragen (FAQ)
 
@@ -131,7 +131,7 @@ Nach Herstellerangaben erzeugen elkoBIM von BEEL, MagiCAD Electrical, der auxali
 
 ### Welche Software schreibt Stromkreisnummern und Sicherungen nach Revit zurück?
 
-Einen Rückweg ins Modell beschreiben BEEL für elkoBIM („bidirektional"), MagiCAD für die Synchronisation von Schema und Modell, Siemens für SIMARIS BIM („und umgekehrt"), Trace Software für elec calc BIM (Stromkreise werden über das Plug-in mit Revit synchronisiert) und BimWired („Stromkreise übernehmen" schreibt Nummern und Parameter an die Bauteile). Für eXs belegt eine MuM-Kundenreferenz, dass Revit Sicherungs- und Klemmenbezeichnungen aus eXs importiert. Für auxalia und LINEAR ist kein Rückweg beschrieben.
+Einen Rückweg ins Modell beschreiben BEEL für elkoBIM („bidirektional"), MagiCAD für die Synchronisation von Schema und Modell, Siemens für SIMARIS BIM („und umgekehrt"), Trace Software für elec calc BIM (Stromkreise werden über das Plug-in mit Revit synchronisiert) und BimWired („Übernehmen" schreibt Nummern und Parameter an die Bauteile). Für eXs belegt eine MuM-Kundenreferenz, dass Revit Sicherungs- und Klemmenbezeichnungen aus eXs importiert. Für auxalia und LINEAR ist kein Rückweg beschrieben.
 
 ### Kann Revit 2026 den Spannungsfall noch berechnen?
 

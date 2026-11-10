@@ -74,7 +74,7 @@ Kopieren Sie die Liste in Ihr QM oder Ihre Planungsvorlage und haken Sie sie je 
 
 ## Einordnung: das Werkzeug BimWired
 
-Schriftfeld, Blattnummern und Querverweise habe ich lange genug von Hand nachgezogen; die Verteilerplan-Ausgabe erzeugt je Verteiler eine Übersicht (einpolig) auf A3 quer, mit Schriftfeld nach DIN EN ISO 7200, Querverweisen nach DIN EN 61082-1 und einer Revisionstabelle, die sich pflegen lässt. Export als Druck, mehrseitiges Vektor-PDF und DXF je Blatt, mit getrennten Layern und Text, der Text bleibt. Aus Block C prüfen feste Regeln Überlast, RCD-Pflicht und Mindestquerschnitte; der Revit-Befehl „Stromkreise übernehmen" schreibt Nummern, Sicherungen und Kabel ins Modell zurück. Handarbeit bleiben die Raum- und Funktionstexte, die örtliche TAB und die fachliche Prüfung. Das Werkzeug füllt die Liste nicht aus, es sorgt dafür, dass weniger Punkte offen bleiben.
+Schriftfeld, Blattnummern und Querverweise habe ich lange genug von Hand nachgezogen; die Verteilerplan-Ausgabe erzeugt je Verteiler eine Übersicht (einpolig) auf A3 quer, mit Schriftfeld nach DIN EN ISO 7200, Querverweisen nach DIN EN 61082-1 und einer Revisionstabelle, die sich pflegen lässt. Export als Druck, mehrseitiges Vektor-PDF und DXF je Blatt, mit getrennten Layern und Text, der Text bleibt. Aus Block C prüfen feste Regeln Überlast, RCD-Pflicht und Mindestquerschnitte; der Revit-Befehl „Übernehmen" schreibt Nummern, Sicherungen und Kabel ins Modell zurück. Handarbeit bleiben die Raum- und Funktionstexte, die örtliche TAB und die fachliche Prüfung. Das Werkzeug füllt die Liste nicht aus, es sorgt dafür, dass weniger Punkte offen bleiben.
 
 ## Häufige Fragen (FAQ)
 
