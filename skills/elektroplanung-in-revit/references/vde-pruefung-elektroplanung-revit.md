@@ -19,7 +19,7 @@ Nein. Revit bringt von Haus aus keine Kabelberechnung nach den deutschen VDE-Nor
 
 - Die Lücke bei den Bordmitteln ist dokumentiert: Der Revit-Elektro-Spezialist BEEL schreibt selbst, dass Revit keine vollständige Kabelberechnung nach DIN VDE bietet (Spannungsfall, Kurzschlussfestigkeit, Strombelastbarkeit). Erweiterungen wie MagiCAD verkaufen laut tab-Advertorial genau diese Berechnung.
 - Die Prüfkette hat feste Zuständigkeiten: DIN VDE 0100-410 (RCD-Schutz), DIN VDE 0100-520 (Spannungsfall), DIN VDE 0298-4 (Strombelastbarkeit), DIN 18015-1 (Wohngebäude), VDE-AR-N 4100 mit örtlicher TAB (Netzanschluss).
-- Spannungsfall in Zahlen, jeweils laut elektro.net: 0,5 % im Hauptstromversorgungssystem (VDE-AR-N 4100 mit Paragraf 13 NAV), im Wohnbau höchstens 3 % hinter der Messeinrichtung (DIN 18015-1); Tabelle G.52.1 der DIN VDE 0100-520 nennt 3 %/5 % für Anlagentyp A und 6 %/8 % für Typ B.
+- Spannungsfall in Zahlen (0,5 % und 3 % laut elektro.net): 0,5 % im Hauptstromversorgungssystem (VDE-AR-N 4100 mit Paragraf 13 NAV), im Wohnbau höchstens 3 % hinter der Messeinrichtung (DIN 18015-1); Abschnitt 525 der DIN VDE 0100-520:2023-06 nennt für die ganze Strecke vom Hausanschlusskasten bis zum Verbrauchsmittel höchstens 4 %, wenn nichts anderes festgelegt ist. Die alte Tabelle G.52.1 der Ausgabe 2013-06 gilt so nicht mehr.
 - Regelhaft automatisierbar ist, was ohne Rechenmodell aus Struktur und Attributen des Plans folgt. Spannungsfall mit realen Längen, Strombelastbarkeit je Verlegeart, Selektivität und Kurzschluss bleiben Berechnung und Bewertung der Fachkraft.
 - In unserer eigenen Ansprache-Kartei haben wir bei 15 von 192 Büro-Profilen die VDE-Nachweise ausdrücklich als Schmerzpunkt vermerkt: geprüft wird „Zeile für Zeile von Hand", in Excel neben dem Modell. Der Vermerk stammt von uns, nicht von den Büros.
 
@@ -29,7 +29,7 @@ Nein. Revit bringt von Haus aus keine Kabelberechnung nach den deutschen VDE-Nor
 |---|---|
 | Bordmittel-Lage | Revit bietet laut BEEL keine vollständige Kabelberechnung nach DIN VDE; Erweiterungen verkaufen genau diese Berechnung (tab-Advertorial zu MagiCAD) |
 | Maßgebliche Regelwerke | DIN VDE 0100-410, DIN VDE 0100-520, DIN VDE 0298-4, DIN 18015-1, VDE-AR-N 4100 mit örtlicher TAB |
-| Spannungsfall-Grenzwerte | 0,5 % im Hauptstromversorgungssystem; höchstens 3 % dahinter im Wohnbau; Tabelle G.52.1: 3 %/5 % (Typ A) und 6 %/8 % (Typ B), jeweils laut elektro.net |
+| Spannungsfall-Grenzwerte | 0,5 % im Hauptstromversorgungssystem; höchstens 3 % dahinter im Wohnbau (DIN 18015-1); höchstens 4 % insgesamt nach Abschnitt 525 der DIN VDE 0100-520:2023-06 |
 | Regelhaft automatisierbar | Überlast-Plausibilität, RCD-Pflicht, Mindestquerschnitte, Struktur- und Zählregeln |
 | Ingenieurleistung | Spannungsfall mit realen Längen, Strombelastbarkeit je Verlegeart, Selektivität, Kurzschlussfestigkeit, Netzform |
 | Typische Werkzeuge heute | Excel, Einzelrechner (ElekRechner), Netzberechnung (Siemens Simaris), Revit-Erweiterungen (MagiCAD, elkoBIM) |
@@ -59,7 +59,7 @@ Für jeden Endstromkreis muss die Elektroplanung mindestens vier Fragen beantwor
 | Norm oder Regelwerk | Kernfrage | Woher die Antwort heute kommt |
 |---|---|---|
 | DIN VDE 0100-410:2018-10 | Wo sind RCDs mit höchstens 30 mA Pflicht? Laut DKE-Normenhinweis bei Steckdosen-Stromkreisen bis 32 A, in Wohnungen auch bei Beleuchtungsstromkreisen | Regelwissen, Checklisten |
-| DIN VDE 0100-520:2013-06 | Bleibt der Spannungsfall der Verbraucheranlage im Rahmen? Empfehlungswerte stehen in Tabelle G.52.1 | Excel, Einzelrechner, Berechnungssoftware |
+| DIN VDE 0100-520:2023-06 | Bleibt der Spannungsfall der Verbraucheranlage im Rahmen? Abschnitt 525 nennt höchstens 4 % vom Hausanschlusskasten bis zum Verbrauchsmittel | Excel, Einzelrechner, Berechnungssoftware |
 | DIN VDE 0298-4:2023-06 | Trägt Kabel oder Leitung den Strom dauerhaft? Die Norm regelt die Strombelastbarkeit nach Verlegeart, laut elektrofachkraft.de inklusive der neuen Referenzverlegeart 23 | Tabellenwerk, Berechnungssoftware |
 | DIN 18015-1:2020-05 | Erfüllt die Wohnbau-Anlage die Planungsgrundlagen? Unter anderem Spannungsfall 0,5 %/3 %, Zählerplatz mindestens 63 A, Aufteilung der Stromkreise auf RCDs (Fachartikel in „de" 12/2020) | Planungsregeln, Leistungsbilanz |
 | VDE-AR-N 4100 und örtliche TAB | Passt der Anschluss ans Niederspannungsnetz? | Abstimmung mit dem Netzbetreiber |
@@ -72,7 +72,7 @@ Zur Einordnung: Die Bundesnetzagentur referenziert die VDE-AR-N 4100 als maßgeb
 
 Der Spannungsfall ist der Nachweis mit den meisten Stolperfallen: Mehrere Regelwerke greifen mit unterschiedlichen Strecken und Grenzwerten ineinander, und die maßgebliche Norm wurde jahrelang unterschiedlich gelesen.
 
-Die Grenzwerte verteilen sich auf zwei Abschnitte der Anlage. Vom Hausanschlusskasten bis zur Messeinrichtung gilt die 0,5-Prozent-Grenze. Nach dem frei verfügbaren Fachartikel „Spannungsfall richtig koordinieren" (D. Sofic, Zeitschrift „de" 21/2020) fordert die VDE-AR-N 4100 in Abschnitt 6.2.5 mit Bezug auf Paragraf 13 NAV, dass der Spannungsfall im Hauptstromversorgungssystem 0,5 % der Nennspannung nicht überschreitet; Bezugsgröße ist der Bemessungsstrom der Hausanschlusssicherung, bei Wohngebäuden mindestens 63 A. Hinter der Messeinrichtung empfiehlt die DIN 18015-1 für Wohngebäude höchstens 3 % bis zum Verbrauchsmittel (so der Fachartikel zur Norm in „de" 12/2020). Für Verbraucheranlagen allgemein nennt Tabelle G.52.1 der DIN VDE 0100-520:2013-06 laut einem elektro.net-Praxisproblem 3 % für Beleuchtung und 5 % für andere Verbraucher bei Versorgung aus dem öffentlichen Netz (Anlagentyp A), bei eigener Einspeisung (Anlagentyp B) 6 % beziehungsweise 8 %.
+Die Grenzwerte verteilen sich auf zwei Abschnitte der Anlage. Vom Hausanschlusskasten bis zur Messeinrichtung gilt die 0,5-Prozent-Grenze. Nach dem frei verfügbaren Fachartikel „Spannungsfall richtig koordinieren" (D. Sofic, Zeitschrift „de" 21/2020) fordert die VDE-AR-N 4100 in Abschnitt 6.2.5 mit Bezug auf Paragraf 13 NAV, dass der Spannungsfall im Hauptstromversorgungssystem 0,5 % der Nennspannung nicht überschreitet; Bezugsgröße ist der Bemessungsstrom der Hausanschlusssicherung, bei Wohngebäuden mindestens 63 A. Hinter der Messeinrichtung empfiehlt die DIN 18015-1 für Wohngebäude höchstens 3 % bis zum Verbrauchsmittel (so der Fachartikel zur Norm in „de" 12/2020). Für die Strecke insgesamt nennt Abschnitt 525 der DIN VDE 0100-520:2023-06: Wenn nichts anderes festgelegt ist, soll der Spannungsfall vom Hausanschlusskasten bis zum Anschlusspunkt eines Verbrauchsmittels höchstens 4 % der Nennspannung betragen; für den Anlauf von Motoren und kurzzeitige Zustände sind höhere Werte zulässig. Das Beiblatt 2 (2023-10) zeigt die Aufteilung 0,5 % plus 3 %. Die Werte 3 %, 5 %, 6 % und 8 % aus der Tabelle G.52.1 der früheren Ausgabe 2013-06 gelten so nicht mehr; die 8 % tauchen nur noch für private Netze im Beiblatt auf.
 
 Abbildung: Diagramm mit vier Geraden für die Querschnitte 1,5 bis 6 mm²: Der Spannungsfall steigt mit der Leitungslänge, eine gestrichelte Linie markiert die Grenze von 3 Prozent. Beispielrechnung für einen Endstromkreis mit 230 V und 16 A: Je kleiner der Querschnitt, desto früher ist die 3-Prozent-Marke erreicht.
 
@@ -134,7 +134,7 @@ Nein. Der Revit-Elektro-Spezialist BEEL hält auf der eigenen Themenseite fest, 
 
 ### Spannungsfall: gelten 3 oder 5 Prozent?
 
-Beides, je nach Strecke und Verbraucher. Tabelle G.52.1 der DIN VDE 0100-520:2013-06 nennt laut elektro.net für Anlagen am öffentlichen Netz (Typ A) 3 % für Beleuchtung und 5 % für andere Verbraucher, bei eigener Einspeisung (Typ B) 6 % beziehungsweise 8 %. Für Wohngebäude empfiehlt die DIN 18015-1 höchstens 3 % hinter der Messeinrichtung; davor gilt nach VDE-AR-N 4100 und Paragraf 13 NAV die Grenze von 0,5 % im Hauptstromversorgungssystem.
+Das hängt von der Strecke ab. Für Wohngebäude empfiehlt die DIN 18015-1 höchstens 3 % hinter der Messeinrichtung; davor gilt nach VDE-AR-N 4100 und Paragraf 13 NAV die Grenze von 0,5 % im Hauptstromversorgungssystem. Insgesamt nennt Abschnitt 525 der DIN VDE 0100-520:2023-06 höchstens 4 % vom Hausanschlusskasten bis zum Verbrauchsmittel. Die 5 % aus der alten Tabelle G.52.1 der Ausgabe 2013-06 gelten in Deutschland so nicht mehr.
 
 ### Welche Prüfungen lassen sich beim Planen automatisieren?
 
@@ -161,7 +161,7 @@ Nein. Eine Regelprüfung ist ein Sicherheitsnetz, das feste Plausibilitäts- und
 5. elektrofachkraft.de: DIN VDE 0298-4, Strombelastbarkeit von Kabeln und Leitungen. https://www.elektrofachkraft.de/sicheres-arbeiten/din-vde-0298-4-strombelastbarkeit-von-kabeln-und-leitungen (abgerufen am 25.08.2026)
 6. D. Sofic: Spannungsfall richtig koordinieren, Zeitschrift „de" 21/2020 (Volltext-PDF). https://www.elektro.net/media/file/rRnRreLDo4/570b31f0/DE_2020_21_20-26_EA41_LOW.pdf (abgerufen am 25.08.2026)
 7. elektro.net: Elektroplanung in Wohngebäuden (zur DIN 18015-1:2020-05), Zeitschrift „de" 12/2020 (Volltext-PDF). https://www.elektro.net/media/file/Kwqzk199w7/fd7e48cc/DE_12_2020_31-34_EA42neu.pdf (abgerufen am 25.08.2026)
-8. elektro.net Praxisproblem: Spannungsfall in Verbraucheranlagen nach VDE 0100-520, Tabelle G.52.1. https://www.elektro.net/praxisprobleme/spannungsfall-in-verbraucheranlagen-nach-vde-0100-520-tabelle-g-52-1/ (abgerufen am 25.08.2026)
+8. DIN VDE 0100-520:2023-06, Abschnitt 525, und Beiblatt 2:2023-10 (Normtexte, nicht frei einsehbar; sinngemäß wiedergegeben, geprüft am 11.11.2026)
 9. Elektropraktiker: DIN VDE 0100-520, der Spannungsfall als Problemfall. https://www.elektropraktiker.de/nachrichten/nachricht/din-vde-0100-520-der-spannungsfall-als-problemfall?p=all (abgerufen am 25.08.2026)
 10. ElekRechner: Spannungsfall-Rechner. https://www.elekrechner.com/rechner/leitung/spannungsfall (abgerufen am 25.08.2026)
 11. VDE FNN: Technische Anschlussregeln Niederspannung (TAR Niederspannung). https://www.vde.com/de/fnn/themen/tar/tar-niederspannung (abgerufen am 25.08.2026)
