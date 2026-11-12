@@ -14,14 +14,14 @@ fragen:
 
 *Ein modellhaftes Szenario aus typischen Arbeitsabläufen deutscher Planungsbüros, kein Kundenbericht. Die Zahlen sind als Beispielrechnung gekennzeichnet.*
 
-Ein Elektro-Fachbüro mit acht Personen plant seit zwei Jahren in Revit und zeichnet seine Verteilerpläne trotzdem in einem CAD-Zweitwerkzeug, mit Excel-Listen als Zwischenschritt. In diesem Szenario entsteht derselbe Plan als Rundlauf: Stromkreisdaten aus Revit senden, im Browser zum Verteilerplan ausarbeiten, als A3-Plansatz, Vektor-PDF und DXF ausgeben, die Ergebnisse zurück ins Modell stempeln. Eine konservative Beispielrechnung ergibt einen Break-even bei rund 67 vermiedenen Doppelarbeits-Stunden im Jahr. Was der Weg nicht liefert (Aufbauplan, Allpolig-Darstellung, Kabelberechnung), steht ebenfalls drin.
+Ein Elektro-Fachbüro mit acht Personen plant seit zwei Jahren in Revit und zeichnet seine Verteilerpläne trotzdem in einem CAD-Zweitwerkzeug, mit Excel-Listen als Zwischenschritt. In diesem Szenario entsteht derselbe Plan als Rundlauf: Stromkreisdaten aus Revit senden, im Browser zum Verteilerplan ausarbeiten, als A3-Plansatz, Vektor-PDF und DXF ausgeben, die Ergebnisse zurück ins Modell stempeln. Eine konservative Beispielrechnung ergibt einen Break-even bei rund 67 vermiedenen Doppelarbeits-Stunden im Jahr. Was der Weg nicht liefert (Netzberechnung mit Selektivität und Kurzschlussfestigkeit, interne Geräteverdrahtung), steht ebenfalls drin.
 
 ## Das Wichtigste in Kürze
 
 - Der doppelte Weg, Modell in Revit und Verteilerplan daneben im Zweitwerkzeug, ist einer der am häufigsten dokumentierten Zeitfresser in der Elektro-Fachplanung mit Revit. In unserer eigenen Ansprache-Kartei haben wir bei 69 von 192 Büro-Profilen genau dieses Muster notiert. Der Vermerk stammt von uns, nicht von den Büros.
 - Der Rundlauf macht die Zwischenlisten überflüssig: „Senden" in Revit, Ausarbeitung im Plan-Editor im Browser, „Übernehmen" schreibt Nummern, Sicherung, RCD und Kabel ins Modell zurück.
 - Die Ausgabe ist eine aufgelöste einpolige Übersicht als A3-Plansatz (Schriftfeld nach DIN EN ISO 7200, Querverweise nach DIN EN 61082-1), dazu mehrseitiges Vektor-PDF, DXF je Blatt und QR-Etiketten für die Schränke.
-- Aufbauplan, Allpolig-Darstellung und Kabelberechnung (etwa Spannungsfall) liefert der Rundlauf nicht. Dafür bleibt ein CAE- oder Berechnungswerkzeug zuständig.
+- Allpoliger Stromlaufplan und Aufbauplan sind enthalten (Aufbauplan im Bereich „Verteiler & Zählerplatz“). Spannungsfall, Abschaltbedingung und Überlast rechnet der Bereich „Nachweise“ überschlägig und als vorläufig gekennzeichnet. Nicht dabei sind die Netzberechnung mit Selektivität und Kurzschlussfestigkeit sowie die interne Geräteverdrahtung; dafür bleibt ein CAE- oder Berechnungswerkzeug zuständig.
 
 ## Ausgangslage
 
@@ -59,7 +59,7 @@ Fallen je Verteiler im Schnitt zwei oder drei Stunden Doppelarbeit weg, ist dies
 Nicht eingerechnet sind, in beide Richtungen:
 
 - Einarbeitung und der einmalige Umstellungsaufwand, etwa Familien mit elektrischen Kenndaten zu versehen. Beides schiebt den Break-even im ersten Jahr nach hinten.
-- Projektspezifische Abweichungen: Verteiler, für die der Auftraggeber eine Allpolig-Darstellung oder Aufbaupläne fordert, bleiben im CAE-Werkzeug und sparen nichts.
+- Projektspezifische Abweichungen: Verteiler, für die der Auftraggeber eine Netzberechnung mit Selektivität oder eine interne Geräteverdrahtung fordert, bleiben im CAE-Werkzeug und sparen nichts.
 - Auf der Habenseite fehlen ebenfalls Posten: vermiedene Übertragungsfehler zwischen Excel, Schema und Modell sowie der Wert der übrigen Pro-Funktionen sind nicht beziffert.
 
 ## Was davon übertragbar ist
@@ -68,13 +68,13 @@ Ob sich das Szenario auf ein anderes Büro übertragen lässt, hängt an vier Be
 
 1. Das Modell muss elektrische Daten tragen: Revit-Familien mit Anschlussleistung, Spannung und Polzahl, zugeordnet zu Räumen und Ebenen. Wie eine solche Bibliothek als Firmenstandard entsteht, beschreibt der Artikel [Revit-Familienbibliothek für die TGA aufbauen](https://bimwired.com/landing/wissen/revit-familienbibliothek-tga.html).
 2. Das Stromkreisverzeichnis muss die führende Quelle werden. Der Gewinn entsteht erst, wenn Änderungen über den Rundlauf laufen und nicht am Modell vorbei im Zweitwerkzeug. Das ist keine Frage der Technik, sondern der Arbeitsorganisation, und nach meiner Erfahrung der Teil der Umstellung, der Disziplin kostet.
-3. Die Grenzen müssen zum Projekt passen. Der erzeugte Plan ist eine aufgelöste einpolige Übersicht nach DIN EN 61082-1, kein vollständiger Installationsplan und keine interne Geräteverdrahtung. Aufbauplan des Schranks, Allpolig-Darstellung und Kabelberechnung (Spannungsfall, Selektivität) liefert der Rundlauf nicht; wo sie gefordert sind, bleibt das bisherige Werkzeug für diese Blätter im Einsatz.
+3. Die Grenzen müssen zum Projekt passen. Der erzeugte Plan ist eine aufgelöste einpolige Übersicht nach DIN EN 61082-1, kein vollständiger Installationsplan und keine interne Geräteverdrahtung. Allpoliger Stromlaufplan und Aufbauplan sind enthalten, die Nachweise (Spannungsfall, Abschaltbedingung, Überlast) kommen als überschlägige, vorläufige Rechenhilfe. Netzberechnung mit Selektivität und Kurzschlussfestigkeit liefert der Rundlauf nicht; wo sie gefordert ist, bleibt das bisherige Werkzeug für diese Blätter im Einsatz.
 
 ## Häufige Fragen
 
 ### Ersetzt der Rundlauf eine CAE-Software vollständig?
 
-Nein. Er erzeugt Stromkreisverzeichnisse und aufgelöste einpolige Übersichten als Planlieferung, dazu Vektor-PDF, DXF und QR-Etiketten. Aufbaupläne, Allpolig-Darstellungen und Kabelberechnungen bleiben Aufgaben für CAE- oder Berechnungswerkzeuge. Wo die einpolige Übersicht als Verteilerdokumentation genügt, kommt das Büro mit dem Rundlauf ohne Zweitwerkzeug aus.
+Nein. Er erzeugt Stromkreisverzeichnisse und aufgelöste einpolige Übersichten als Planlieferung, dazu Vektor-PDF, DXF und QR-Etiketten. Allpoliger Stromlaufplan und Aufbauplan sind enthalten, die Nachweise rechnet der Bereich „Nachweise“ überschlägig und als vorläufig gekennzeichnet; Netzberechnung mit Selektivität und Kurzschlussfestigkeit bleibt eine Aufgabe für CAE- oder Berechnungswerkzeuge. Wo die einpolige Übersicht als Verteilerdokumentation genügt, kommt das Büro mit dem Rundlauf ohne Zweitwerkzeug aus.
 
 ### Was muss das Revit-Modell mitbringen?
 

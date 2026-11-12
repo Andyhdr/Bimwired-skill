@@ -9,17 +9,19 @@ Die Texte stammen aus der Planungspraxis von Rowan Hamid, Elektrofachplanerin un
 - **12 Fachartikel und Checklisten**: Stromkreise in Revit aufteilen, Verteilerplan und Stromlaufplan nach DIN EN 61082-1, VDE-Regelprüfung, Leistungsbilanz nach DIN 18015-1, Revit-Familienbibliothek für TGA, Familien definieren statt modellieren, Software-Vergleich.
 - **3 Praxisszenarien** mit offenen Annahmen und Beispielrechnungen.
 - **Glossar** mit 14 Begriffen von BCF bis Spannungsfall.
-- **MCP-Server** `https://mcp.bimwired.com/mcp` (Streamable HTTP, keine Anmeldung, nur lesend) mit neun Werkzeugen:
+- **MCP-Server** `https://mcp.bimwired.com/mcp` (Streamable HTTP, keine Anmeldung, nur lesend) mit elf Werkzeugen:
   - `katalog_ifc`, `katalog_din276`, `katalog_parametergruppen`, `katalog_kategorien`: die Normkataloge, mit denen BimWired Familien klassifiziert.
   - `bibliothek_familien`, `bibliothek_familie`: die öffentliche Demo-Bibliothek mit Klassifizierung, Parametern und Typen.
   - `stromkreise_pruefen`, `stromkreis_vorschlag`: VDE-Plausibilitätsprüfung eines Stromkreisverzeichnisses (DIN VDE 0100-410/-430/-560/-701, DIN 18015-1) und ein Vorschlag für Sicherung, Kabel und Phasen.
+  - `stromkreise_vorschlagen`: ein Stromkreisverzeichnis aus einer Raumliste, gleich mitgeprüft, mit Begründung je Kreis und offen genannten Annahmen.
+  - `stromkreis_nachweis`: Spannungsfall, Abschaltbedingung, Überlast und Grenzlänge für einen einzelnen Stromkreis, überschlägig und als vorläufig gekennzeichnet.
   - `leistungsbilanz_rechnen`: Leistungsbilanz nach DIN 18015-1 Anhang A mit Sonderlasten, E-Mobilität, PV-Richtungsprüfung, NH-Empfehlung und vollständigem Rechenweg.
 
 Jede Werkzeugantwort trägt die Felder `quelle` und `weiter`. Nichts wird gespeichert; der Server liest nur die Demo-Firma.
 
 ## Verbinden
 
-**ChatGPT:** Plugin „BimWired Elektroplanung Revit" im Plugin Directory, sobald die Prüfung durch OpenAI abgeschlossen ist.
+**ChatGPT:** Plugin „BimWired Elektroplanung Revit" im Plugin Directory.
 
 **Claude Code:**
 
@@ -40,7 +42,7 @@ curl -s https://mcp.bimwired.com/mcp -H "Content-Type: application/json" -H "Acc
 
 ## Grenzen
 
-Alle Ergebnisse sind Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Die Werkzeuge dieses Servers prüfen keinen Spannungsfall, keine Strombelastbarkeit nach Verlegeart und Häufung, keine Selektivität und keine Kurzschlussfestigkeit; das bleibt Ingenieurleistung. In der BimWired-Anwendung rechnet der Projektbereich „Nachweise“ (im Pro-Umfang, als vorläufig gekennzeichnet) je Stromkreis überschlägig Spannungsfall, Abschaltbedingung, Überlast und Grenzlänge; das gehört nicht zu diesem Server. Je Sitzung und insgesamt gilt eine Obergrenze an Aufrufen pro Minute.
+Alle Ergebnisse sind Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Die Stromkreisprüfung rechnet keinen Spannungsfall. `stromkreis_nachweis` rechnet Spannungsfall, Abschaltbedingung, Überlast und Grenzlänge für einen einzelnen Stromkreis überschlägig; das Ergebnis ist als vorläufig gekennzeichnet und kein Nachweis. Strombelastbarkeit nach Verlegeart und Häufung, Selektivität und Kurzschlussfestigkeit prüft kein Werkzeug; das bleibt Ingenieurleistung. Je Sitzung und insgesamt gilt eine Obergrenze an Aufrufen pro Minute.
 
 ## Mitwirken
 

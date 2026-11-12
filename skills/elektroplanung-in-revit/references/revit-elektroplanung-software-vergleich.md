@@ -88,12 +88,12 @@ Abbildung: Fünf Arbeitsschritte von den Familien über Stromkreise, Nachweise u
 
 ## Die Vergleichstabelle
 
-In der vierten Spalte ordne ich das eigene Produkt ein. Neben Add-ins und Kopplungen gibt es modellgespeiste Browser-Editoren: Sie übernehmen Stromkreisdaten aus Revit, bauen Aufteilung und Verteilerdokumentation außerhalb von Revit auf und schreiben Stromkreisnummern ins Modell zurück. BimWired gehört in diese Kategorie, mit klaren Grenzen: keine Kabelberechnung, kein Aufbauplan, keine Allpolig-Darstellung.
+In der vierten Spalte ordne ich das eigene Produkt ein. Neben Add-ins und Kopplungen gibt es modellgespeiste Browser-Editoren: Sie übernehmen Stromkreisdaten aus Revit, bauen Aufteilung und Verteilerdokumentation außerhalb von Revit auf und schreiben Stromkreisnummern ins Modell zurück. BimWired gehört in diese Kategorie, mit klaren Grenzen: Spannungsfall, Abschaltbedingung und Überlast rechnet nur eine überschlägige, als vorläufig gekennzeichnete Rechenhilfe, eine Netzberechnung mit Selektivität und Kurzschlussfestigkeit gehört nicht dazu, und der Stromlaufplan enthält keine interne Geräteverdrahtung.
 
 | Kriterium | Revit-Bordmittel | Revit + Add-in/Kopplung | TGA-/CAE-Spezialsoftware | BimWired (Einordnung) |
 |---|---|---|---|---|
-| Deutsche Verteilerdokumentation | Panel Schedule nach US-Konvention; Einlinienschema laut Autodesk-Forum ohne Modellbezug gezeichnet | Kernthema: BEEL positioniert elkoBIM für Verteilerschemata, eXs erzeugt Verteilerpläne aus Revit-Stromkreisdaten | traditioneller Kern der Kategorie (Einschätzung) | einpolige Übersicht nach DIN EN 61082-1 auf A3 als PDF und DXF; kein Aufbauplan, keine Allpolig-Darstellung |
-| VDE-Berechnungen (Spannungsfall, Kabel) | laut BEEL keine vollständige Kabelberechnung nach DIN VDE | zentrales Verkaufsargument laut tab-Advertorial (Spannungsfall, Kabeldimensionierung) | Kernkompetenz der Kategorie (Einschätzung) | bewusst nicht enthalten; feste Prüfungen auf Überlast, RCD-Pflicht, Mindestquerschnitt mit DIN-18015-Bezügen |
+| Deutsche Verteilerdokumentation | Panel Schedule nach US-Konvention; Einlinienschema laut Autodesk-Forum ohne Modellbezug gezeichnet | Kernthema: BEEL positioniert elkoBIM für Verteilerschemata, eXs erzeugt Verteilerpläne aus Revit-Stromkreisdaten | traditioneller Kern der Kategorie (Einschätzung) | einpolige Übersicht nach DIN EN 61082-1 auf A3 als PDF und DXF; dazu allpoliger Stromlaufplan und Aufbauplan je Verteiler |
+| VDE-Berechnungen (Spannungsfall, Kabel) | laut BEEL keine vollständige Kabelberechnung nach DIN VDE | zentrales Verkaufsargument laut tab-Advertorial (Spannungsfall, Kabeldimensionierung) | Kernkompetenz der Kategorie (Einschätzung) | überschlägige, als vorläufig gekennzeichnete Rechenhilfe für Spannungsfall, Abschaltbedingung und Überlast je Stromkreis (Bereich „Nachweise“), keine Netzberechnung; dazu feste Prüfungen auf Überlast, RCD-Pflicht, Mindestquerschnitt mit DIN-18015-Bezügen |
 | Familien und Content | Standardvorlagen laut Mensch und Maschine ohne Elektro-Beschriftungen; Familien brauchen elektrische Anschlüsse | Anbieter begleiten mit Schulungen (BEEL); Familienpflege bleibt beim Büro (Einschätzung) | Hersteller liefern 3D-Daten teils nur noch als Revit-Familien (Nova-Anwenderforum) | Familienbibliothek im Browser mit IFC- und DIN-276-Klassifizierung, Releases und Cloud-Update (Nutzung ab Basis) |
 | Lernkurve und Team | US-Logik als Hürde: Panel Name, Verteilersystem und Familienanschluss müssen zusammenpassen (Autodesk-Forum) | Revit-Kenntnisse plus Werkzeugschulung; BEEL bietet Schulungen und einen YouTube-Kanal | eingespielt für Bestandsteams; der Umstieg ist im Nova-Anwenderforum ein eigenes Thema | Browser-Editor plus Revit-Plugin (Revit 2025 bis 2027); Rundlauf in drei Schritten |
 
@@ -113,7 +113,7 @@ Läuft SHKL bereits in Revit, ist Elektro eine Ergänzungsfrage: Add-in im Model
 
 ### Kleines Büro ohne CAE-Landschaft
 
-Der Einstieg über die Bordmittel ist möglich, aber einrichtungsintensiv; der Forum-Thread zeigt, wie Einsteiger an der US-Logik hängen bleiben. Kalkulieren Sie die Handarbeit für Schema und Nachweise realistisch, sie ist erfahrungsgemäß größer als gedacht. Ein browserbasierter Weg wie BimWired senkt die Hürde bei Stromkreisen und Verteilerübersicht, ersetzt aber keine Kabelberechnung. Die Nachweise bleiben eine eigene Aufgabe.
+Der Einstieg über die Bordmittel ist möglich, aber einrichtungsintensiv; der Forum-Thread zeigt, wie Einsteiger an der US-Logik hängen bleiben. Kalkulieren Sie die Handarbeit für Schema und Nachweise realistisch, sie ist erfahrungsgemäß größer als gedacht. Ein browserbasierter Weg wie BimWired senkt die Hürde bei Stromkreisen und Verteilerübersicht, liefert für die Nachweise aber nur eine überschlägige Rechenhilfe. Die Nachweise bleiben eine eigene Aufgabe.
 
 ### Büro mit BIM-Auftraggebern
 
@@ -129,7 +129,7 @@ So gehen Sie die Entscheidung an:
 
 ## Einordnung: das Werkzeug BimWired
 
-BimWired ist eine Cloud-Webanwendung mit Revit-Plugin für Revit 2025, 2026 und 2027, also ein modellgespeister Browser-Editor im Sinne dieses Vergleichs. Der Revit-Befehl „Senden“ sammelt Leuchten, Schalter, Steckdosen und Elektrogeräte mit Raum, Ebene, Scheinleistung, Spannung und Polzahl. Im Browser bauen Sie Verteiler und Stromkreise auf, auf Wunsch mit automatischer Aufteilung in thematische Gruppen je Ebene. „Übernehmen“ schreibt Stromkreisnummern und je nach Einstellung Verteiler, Sicherung, RCD, Kabel und Phasen zurück; fehlende Projektparameter legt das Plugin an. Der Verteilerplan entsteht als einpolige Übersicht nach DIN EN 61082-1 auf A3, als mehrseitiges Vektor-PDF und als DXF je Blatt. Deterministische Prüfungen melden Überlast, fehlende RCD-Zuordnung und zu geringe Querschnitte mit Bezügen zur DIN 18015. Ein optionaler KI-Prüfblick liefert höchstens zehn Hinweise als zweite Meinung; er ändert nichts am Plan und ist keine Normprüfung. Bewusst nicht enthalten sind Kabel- und Spannungsfallberechnung, Aufbauplan und Allpolig-Darstellung. Das ist Absicht: Ich wollte den Rundlauf zwischen Modell und Verteilerplan sauber lösen, nicht die CAE-Welt nachbauen.
+BimWired ist eine Cloud-Webanwendung mit Revit-Plugin für Revit 2025, 2026 und 2027, also ein modellgespeister Browser-Editor im Sinne dieses Vergleichs. Der Revit-Befehl „Senden“ sammelt Leuchten, Schalter, Steckdosen und Elektrogeräte mit Raum, Ebene, Scheinleistung, Spannung und Polzahl. Im Browser bauen Sie Verteiler und Stromkreise auf, auf Wunsch mit automatischer Aufteilung in thematische Gruppen je Ebene. „Übernehmen“ schreibt Stromkreisnummern und je nach Einstellung Verteiler, Sicherung, RCD, Kabel und Phasen zurück; fehlende Projektparameter legt das Plugin an. Der Verteilerplan entsteht als Stromlaufplan (allpolig) nach DIN EN 61082-1 auf A3, als mehrseitiges Vektor-PDF und als DXF je Blatt; den Aufbauplan führt der Bereich „Verteiler & Zählerplatz“. Deterministische Prüfungen melden Überlast, fehlende RCD-Zuordnung und zu geringe Querschnitte mit Bezügen zur DIN 18015. Ein optionaler KI-Prüfblick liefert höchstens zehn Hinweise als zweite Meinung; er ändert nichts am Plan und ist keine Normprüfung. Nicht enthalten sind die interne Geräteverdrahtung, ein vollständiger Installationsplan sowie die Netzberechnung mit Selektivität und Kurzschlussfestigkeit. Spannungsfall, Abschaltbedingung und Überlast rechnet der Projektbereich „Nachweise“ (im Pro-Umfang) überschlägig und als vorläufig gekennzeichnet. Das ist Absicht: Ich wollte den Rundlauf zwischen Modell und Verteilerplan sauber lösen, nicht die CAE-Welt nachbauen.
 
 ## Häufige Fragen (FAQ)
 
@@ -151,7 +151,7 @@ Nein, einen generellen Zwang gibt es nicht. Laut Bundesingenieurkammer (2022) we
 
 ### Ist BimWired ein Ersatz für CAE-Software?
 
-Nein. BimWired baut aus gesendeten Revit-Daten Stromkreise und eine einpolige Verteilerübersicht nach DIN EN 61082-1 auf und schreibt Nummern und Parameter zurück nach Revit. Für Netzberechnungen bleiben CAE-Werkzeuge oder separate Nachweise nötig.
+Nein. BimWired baut aus gesendeten Revit-Daten Stromkreise und eine einpolige Verteilerübersicht nach DIN EN 61082-1 auf und schreibt Nummern und Parameter zurück nach Revit. Spannungsfall, Abschaltbedingung und Überlast rechnet der Projektbereich „Nachweise“ überschlägig und als vorläufig gekennzeichnet; Selektivität und Kurzschlussfestigkeit rechnet BimWired nicht. Für Netzberechnungen bleiben CAE-Werkzeuge oder separate Nachweise nötig.
 
 ## Quellen
 

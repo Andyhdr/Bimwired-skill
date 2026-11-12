@@ -21,6 +21,7 @@ Nein. Revit bringt von Haus aus keine Kabelberechnung nach den deutschen VDE-Nor
 - Die Prüfkette hat feste Zuständigkeiten: DIN VDE 0100-410 (RCD-Schutz), DIN VDE 0100-520 (Spannungsfall), DIN VDE 0298-4 (Strombelastbarkeit), DIN 18015-1 (Wohngebäude), VDE-AR-N 4100 mit örtlicher TAB (Netzanschluss).
 - Spannungsfall in Zahlen (0,5 % und 3 % laut elektro.net): 0,5 % im Hauptstromversorgungssystem (VDE-AR-N 4100 mit Paragraf 13 NAV), im Wohnbau höchstens 3 % hinter der Messeinrichtung (DIN 18015-1); Abschnitt 525 der DIN VDE 0100-520:2023-06 nennt für die ganze Strecke vom Hausanschlusskasten bis zum Verbrauchsmittel höchstens 4 %, wenn nichts anderes festgelegt ist. Die alte Tabelle G.52.1 der Ausgabe 2013-06 gilt so nicht mehr.
 - Regelhaft automatisierbar ist, was ohne Rechenmodell aus Struktur und Attributen des Plans folgt. Spannungsfall mit realen Längen, Strombelastbarkeit je Verlegeart, Selektivität und Kurzschluss bleiben Berechnung und Bewertung der Fachkraft.
+- BimWired rechnet im Projektbereich „Nachweise“ (im Pro-Umfang, als vorläufig gekennzeichnet) je Stromkreis überschlägig Überlast, Spannungsfall, Abschaltbedingung und Grenzlänge. Das ist eine Rechenhilfe, kein fertiger Nachweis; Selektivität und Kurzschlussfestigkeit rechnet BimWired nicht.
 - In unserer eigenen Ansprache-Kartei haben wir bei 15 von 192 Büro-Profilen die VDE-Nachweise ausdrücklich als Schmerzpunkt vermerkt: geprüft wird „Zeile für Zeile von Hand", in Excel neben dem Modell. Der Vermerk stammt von uns, nicht von den Büros.
 
 ## Überblick
@@ -31,7 +32,7 @@ Nein. Revit bringt von Haus aus keine Kabelberechnung nach den deutschen VDE-Nor
 | Maßgebliche Regelwerke | DIN VDE 0100-410, DIN VDE 0100-520, DIN VDE 0298-4, DIN 18015-1, VDE-AR-N 4100 mit örtlicher TAB |
 | Spannungsfall-Grenzwerte | 0,5 % im Hauptstromversorgungssystem; höchstens 3 % dahinter im Wohnbau (DIN 18015-1); höchstens 4 % insgesamt nach Abschnitt 525 der DIN VDE 0100-520:2023-06 |
 | Regelhaft automatisierbar | Überlast-Plausibilität, RCD-Pflicht, Mindestquerschnitte, Struktur- und Zählregeln |
-| Ingenieurleistung | Spannungsfall mit realen Längen, Strombelastbarkeit je Verlegeart, Selektivität, Kurzschlussfestigkeit, Netzform |
+| Ingenieurleistung | Spannungsfall mit realen Längen (als Rechenhilfe möglich, die Bewertung bleibt bei der Fachkraft), Strombelastbarkeit je Verlegeart, Selektivität, Kurzschlussfestigkeit, Netzform |
 | Typische Werkzeuge heute | Excel, Einzelrechner (ElekRechner), Netzberechnung (Siemens Simaris), Revit-Erweiterungen (MagiCAD, elkoBIM) |
 
 ## Inhalt
@@ -66,7 +67,7 @@ Für jeden Endstromkreis muss die Elektroplanung mindestens vier Fragen beantwor
 | Selektivität, laut StromKompass u. a. in der DIN 18015-1 normativ verankert | Schaltet im Fehlerfall nur die unmittelbar vorgeschaltete Schutzeinrichtung ab? | Netzberechnung, Herstellerdaten |
 | DIN VDE 0100-718 | Bleiben sicherheitsrelevante Anlagen wie die Sicherheitsbeleuchtung in öffentlichen Einrichtungen im Brandfall betriebsfähig (Funktionserhalt E30/E60/E90)? So erläutert bei BauNetz Wissen | Fachplanung Sicherheitstechnik |
 
-Zur Einordnung: Die Bundesnetzagentur referenziert die VDE-AR-N 4100 als maßgebliches Anschluss-Regelwerk. Den Bundesmusterwortlaut der TAB 2023 stellt der BDEW frei bereit, verbindlich vor Ort bleibt die TAB des Netzbetreibers. VDE FNN nennt bereits die Folgeausgabe VDE-AR-N 4100:2026-04; Ausgabestände gehören deshalb in gepflegte Vorlagen. Wie aus den Vorgaben der DIN 18015-1 eine belastbare Anschlussbewertung wird, zeigt der Beitrag [Leistungsbilanz nach DIN 18015-1](https://bimwired.com/landing/wissen/leistungsbilanz-din-18015-1.html).
+Zur Einordnung: Die Bundesnetzagentur referenziert die VDE-AR-N 4100 als maßgebliches Anschluss-Regelwerk. Den Bundesmusterwortlaut der TAB stellt der BDEW frei bereit, zuletzt als TAB 2026 (veröffentlicht am 31. Juli 2026); verbindlich vor Ort bleibt die TAB des Netzbetreibers, und wann dieser auf den neuen Wortlaut umstellt, steht dort. Gültig ist die VDE-AR-N 4100:2026-04 (Anwendungsbeginn 1. April 2026); die bei ihrer Veröffentlichung gültige Vorgängerausgabe darf nach der Norm bis zum 1. April 2027 noch angewendet werden. Ausgabestände gehören deshalb in gepflegte Vorlagen. Wie aus den Vorgaben der DIN 18015-1 eine belastbare Anschlussbewertung wird, zeigt der Beitrag [Leistungsbilanz nach DIN 18015-1](https://bimwired.com/landing/wissen/leistungsbilanz-din-18015-1.html).
 
 ## Warum ist der Spannungsfall ein Problemfall?
 
@@ -92,10 +93,10 @@ Regelhaft automatisieren lässt sich, was ohne Rechenmodell aus Struktur und Att
 | Strukturregeln der Sicherheitstechnik: eigene Kreise, nicht hinter dem RCD allgemeiner Kreise | Ja | Aus der Plantopologie ablesbar; sinnvoll als Meldung, eine stille Korrektur wäre hier falsch |
 | Zählregeln wie die Aufteilung der Stromkreise auf RCDs | Ja | Der Fachartikel zur DIN 18015-1 („de" 12/2020) nennt für die Anlagenverfügbarkeit höchstens zwei einphasige Endstromkreise je zweipoligem und sechs je vierpoligem FI-Schalter |
 | Vorauswahl von Vorsicherungen nach fester Staffelregel | Ja, als Vorauswahl | Eine deterministische Auswahlregel liefert einen Startwert; sie ersetzt keinen Selektivitätsnachweis über Kennlinien |
-| Spannungsfall mit realen Leitungslängen | Nein | Braucht Längen, Verlegeweg, Belastung und die richtige Bezugsstrecke; Berechnungswerkzeug plus Bewertung der Fachkraft |
-| Strombelastbarkeit nach DIN VDE 0298-4:2023-06 | Nein | Hängt von Verlegeart, Häufung und Umgebungstemperatur ab; Tabellenwerk der Norm und Bewertung der Fachkraft |
+| Spannungsfall mit realen Leitungslängen | Nur als Rechenhilfe | Mit gepflegten Längen lässt sich ein überschlägiger Wert rechnen (in BimWired der Bereich „Nachweise“, vorläufig). Belastbar wird er erst mit Verlegeweg, tatsächlicher Belastung und der richtigen Bezugsstrecke; Bewertung durch die Fachkraft |
+| Strombelastbarkeit nach DIN VDE 0298-4:2023-06 | Nein | Hängt von Verlegeart, Häufung und Umgebungstemperatur ab; Tabellenwerk der Norm und Bewertung der Fachkraft. Die Rechenhilfe in BimWired rechnet nur mit der Verlegeart B2 bei 30 °C und bewertet Häufung und Umgebungstemperatur nicht |
 | Selektivität | Nein | Verlangt Kennlinienvergleich mit Herstellerdaten in der Netzberechnung; zur Definition siehe Prüfkette oben (StromKompass) |
-| Kurzschlussfestigkeit und Kurzschlussströme | Nein | Hängen von den Netzverhältnissen am Einspeisepunkt ab; Netzberechnung |
+| Kurzschlussfestigkeit und Kurzschlussströme | Nein | Hängen von den Netzverhältnissen am Einspeisepunkt ab; Netzberechnung. Die Abschaltbedingung am Leitungsende rechnet die Rechenhilfe in BimWired überschlägig mit einer angenommenen Schleifenimpedanz an der Einspeisung (Vorgabe 0,30 Ω); den echten Wert nennt der Netzbetreiber |
 | Netzform und Schutzkonzept | Nein | Planerische Grundsatzentscheidung der Elektrofachkraft |
 
 Der Maßstab ist einfach: Automatisierbar ist, was aus Plan-Attributen wie Kreistyp, Raumart, Querschnitt, Sicherungswert und Topologie folgt und bei gleichen Eingaben dieselbe Meldung erzeugt. Sobald reale Geometrie, physikalische Randbedingungen oder Netzdaten eingehen, ist es eine Berechnung; die gehört in Nachweiswerkzeuge und in die Verantwortung der Elektrofachkraft. KI verschiebt diese Grenze nicht. Ein Sprachmodell kann auf Auffälligkeiten hinweisen, ein Hinweis ist aber keine Normprüfung, und ich würde ihn nie als eine behandeln.
@@ -115,7 +116,7 @@ Eine Regelprüfung im modellgespeisten Workflow ist ein Sicherheitsnetz, kein Na
 1. Die Elektro-Elemente kommen mit Raum, Ebene und Leistungsdaten strukturiert aus dem Revit-Modell.
 2. Die Stromkreise werden im Plan-Editor strukturiert: Verteiler, Gruppen, Reserven, Kabelvorschläge.
 3. Bei jeder Änderung laufen die Regelprüfungen mit: Überlast-Plausibilität, RCD-Pflicht, Mindestquerschnitte, Struktur- und Zählregeln.
-4. Die Meldungen bewertet die Elektrofachkraft; die rechnerischen Nachweise (Spannungsfall, Strombelastbarkeit, Selektivität, Kurzschluss) laufen weiter im Berechnungswerkzeug.
+4. Die Meldungen bewertet die Elektrofachkraft; die rechnerischen Nachweise (Spannungsfall, Strombelastbarkeit, Selektivität, Kurzschluss) bleiben ihre Aufgabe, im Berechnungswerkzeug oder mit einer überschlägigen Rechenhilfe, deren Ergebnis sie prüft.
 5. Die Ergebnisse (Stromkreisnummern, Sicherungen, Kabel) gehen zurück ins Modell, damit Plan, Modell und Nachweisliste denselben Stand behalten.
 
 Der Gewinn liegt weniger in der Automatik als darin, dass Konflikte auffallen, solange ihre Behebung wenig kostet, und dass im ganzen Büro dieselben Regeln gelten. So ist das Stromkreis-Modul von BimWired zugeschnitten; seine Regelprüfungen laufen beim Aufteilen der Stromkreise mit. Wo das Sicherheitsnetz endet, zeigt die Tabelle oben: am ersten Nachweis, der echte Längen oder Netzdaten braucht.
@@ -124,7 +125,7 @@ Der Gewinn liegt weniger in der Automatik als darin, dass Konflikte auffallen, s
 
 BimWired ist unsere Cloud-Webanwendung mit Revit-Plugin (Revit 2025, 2026 und 2027) für Planungsbüros. Sicherheitstechnik wie RWA, BMZ, EMZ oder Brandschutztüren bekommt bei der automatischen Aufteilung eigene Kreise (B16A, 3x2,5 mm²), bewusst ohne RCD hinter eigenem Gruppenkopf. Hängt ein solcher Kreis doch hinter einem RCD, meldet die Prüfung den Konflikt mit Verweis auf DIN VDE 0100-560. D0-Vorsicherungen wählt die Aufteilung selektiv zum größten nachgelagerten Leitungsschutzschalter (1,6-facher Nennstrom nach DIN VDE 0100-530). Wer möchte, schaltet den KI-Prüfblick dazu: höchstens zehn Hinweise, die nie etwas am Plan ändern, ausdrücklich keine Normprüfung, sondern eine zweite Meinung, die Sie selbst prüfen.
 
-Mir ist genauso wichtig, was BimWired nicht tut. Es berechnet keinen Spannungsfall, keine Strombelastbarkeit nach DIN VDE 0298-4, keine Selektivität und keine Kurzschlussfestigkeit. Diese Nachweise führen Sie weiterhin in Ihren Berechnungswerkzeugen. Die Regelprüfung ersetzt sie nicht; sie hält den Plan bis dahin widerspruchsfrei, und genau dieses Nachziehen hat mich in der eigenen Planungsarbeit die meiste Zeit gekostet. Die Ergebnisse (Stromkreisnummern, Sicherungen, Kabel) schreibt das Plugin nach Revit zurück, und aus denselben Daten entsteht der [Verteilerplan als Übersicht (einpolig)](https://bimwired.com/landing/wissen/verteilerplan-stromlaufplan-normgerecht.html).
+Mir ist genauso wichtig, was BimWired nicht tut. Die Regelprüfung im Stromkreis-Modul rechnet keinen Spannungsfall, keine Strombelastbarkeit nach DIN VDE 0298-4, keine Selektivität und keine Kurzschlussfestigkeit; sie ersetzt keinen Nachweis und hält den Plan bis dahin widerspruchsfrei, und genau dieses Nachziehen hat mich in der eigenen Planungsarbeit die meiste Zeit gekostet. Daneben gibt es im Projekt den Bereich „Nachweise“, der im Pro-Umfang liegt und als vorläufig gekennzeichnet ist. Er rechnet je Stromkreis überschlägig Überlast, Spannungsfall, Abschaltbedingung und Grenzlänge, mit dem gespeicherten Stromkreisplan und den Längen aus dem Bereich Leitungslängen. Das ist eine Rechenhilfe, kein fertiger Nachweis: Die Zahlenwerte sind noch nicht gegen den Normtext geprüft, Sie prüfen das Ergebnis und verantworten es. Bei der Strombelastbarkeit rechnet der Bereich nur mit der Verlegeart B2 bei 30 °C und bewertet Häufung und Umgebungstemperatur nicht; Selektivität und Kurzschlussfestigkeit rechnet BimWired gar nicht. Diese Nachweise führen Sie weiterhin in Ihren Berechnungswerkzeugen. Die Ergebnisse (Stromkreisnummern, Sicherungen, Kabel) schreibt das Plugin nach Revit zurück, und aus denselben Daten entsteht der [Verteilerplan als Übersicht (einpolig)](https://bimwired.com/landing/wissen/verteilerplan-stromlaufplan-normgerecht.html).
 
 ## Häufige Fragen (FAQ)
 
@@ -142,7 +143,7 @@ Regelhaft prüfbar ist, was ohne Rechenmodell aus den Plan-Attributen folgt: die
 
 ### Was bleibt trotz Software Aufgabe der Elektrofachkraft?
 
-Alle rechnerischen Nachweise und ihre Bewertung: der Spannungsfall mit realen Leitungslängen, die Strombelastbarkeit nach DIN VDE 0298-4 je Verlegeart, die Selektivität über Auslösekennlinien, die Kurzschlussfestigkeit sowie Netzform und Schutzkonzept. Die DKE stellt für das BIM-Umfeld klar, dass die Normenreihe DIN VDE 0100 verbindlich bleibt; die Verantwortung trägt die Fachkraft, nicht das Werkzeug.
+Alle rechnerischen Nachweise und ihre Bewertung: der Spannungsfall mit realen Leitungslängen, die Strombelastbarkeit nach DIN VDE 0298-4 je Verlegeart, die Selektivität über Auslösekennlinien, die Kurzschlussfestigkeit sowie Netzform und Schutzkonzept. Die DKE stellt für das BIM-Umfeld klar, dass die Normenreihe DIN VDE 0100 verbindlich bleibt; die Verantwortung trägt die Fachkraft, nicht das Werkzeug. Eine überschlägige Rechenhilfe wie der Bereich „Nachweise“ in BimWired kann Vorwerte liefern; bewerten und verantworten müssen Sie sie selbst.
 
 ### Mit welcher Software führen deutsche Büros die VDE-Nachweise heute?
 
@@ -165,11 +166,12 @@ Nein. Eine Regelprüfung ist ein Sicherheitsnetz, das feste Plausibilitäts- und
 9. Elektropraktiker: DIN VDE 0100-520, der Spannungsfall als Problemfall. https://www.elektropraktiker.de/nachrichten/nachricht/din-vde-0100-520-der-spannungsfall-als-problemfall?p=all (abgerufen am 25.08.2026)
 10. ElekRechner: Spannungsfall-Rechner. https://www.elekrechner.com/rechner/leitung/spannungsfall (abgerufen am 25.08.2026)
 11. VDE FNN: Technische Anschlussregeln Niederspannung (TAR Niederspannung). https://www.vde.com/de/fnn/themen/tar/tar-niederspannung (abgerufen am 25.08.2026)
-12. BDEW: TAB 2023, Technische Anschlussbedingungen Strom. https://www.bdew.de/energie/tab-2023/ (abgerufen am 25.08.2026)
+12. BDEW: TAB 2026, Technische Anschlussbedingungen Niederspannung. https://www.bdew.de/energie/technische-anschlussbedingungen-niederspannung-tab-2026/ (abgerufen am 11.11.2026)
 13. Bundesnetzagentur, Beschlusskammer 6: VDE-AR-N 4100 (amtliche Referenzierung). https://www.bundesnetzagentur.de/DE/Beschlusskammern/BK06/BK6_92_exLink/VDE-AR-N_4100.html (abgerufen am 25.08.2026)
 14. StromKompass ElektroSpicker #008: Selektivität. https://stromkompass.de/elektrospicker/selektivitaet/ (abgerufen am 25.08.2026)
 15. BauNetz Wissen: Elektroinstallation in öffentlichen Einrichtungen und Arbeitsstätten (DIN VDE 0100-718). https://www.baunetzwissen.de/elektro/fachwissen/elektroinstallation-in-gebaeuden/elektroinstallation-in-oeffentlichen-einrichtungen-und-arbeitsstaetten-5266336 (abgerufen am 25.08.2026)
 16. Eigene Ansprache-Kartei von BimWired: 192 von uns durchgesehene, öffentlich zugängliche Büro-Profile mit einem von uns notierten Ansatzpunkt je Büro (Stand August 2026, unveröffentlicht, nicht repräsentativ).
+17. VDE-AR-N 4100:2026-04 (Normtext, nicht frei einsehbar; sinngemäß wiedergegeben, geprüft am 11.11.2026)
 
 ---
 

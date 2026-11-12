@@ -45,8 +45,9 @@ Die Anschlussleistung eines Wohngebäudes ermitteln Sie nach DIN 18015-1:2020-05
 6. Was sagt der Netzbetreiber dazu?
 7. Warum gehört die Bilanz ins Projekt und nicht in eine Excel-Datei daneben?
 8. So hilft BimWired
-9. Häufige Fragen zur Leistungsbilanz
-10. Quellen
+9. Welche Anschlusshinweise gibt die Leistungsbilanz zusätzlich aus?
+10. Häufige Fragen zur Leistungsbilanz
+11. Quellen
 
 ## Warum ist die Leistungsbilanz wieder Planungsthema?
 
@@ -109,9 +110,9 @@ Was mir an solchen Bilanzen immer wieder auffällt: Die zwölf Wohnungen treiben
 
 ## Was sagt der Netzbetreiber dazu?
 
-Die Leistungsbilanz ist Planungsgrundlage, keine Genehmigung. Über den Netzanschluss entscheidet der Netzbetreiber auf Basis seiner Technischen Anschlussbedingungen (TAB) und der Anschlusszusage. Der BDEW stellt mit der TAB 2023 den Bundesmusterwortlaut bereit, der die TAB 2019 ablöst; verbindlich ist die jeweils örtliche Fassung.
+Die Leistungsbilanz ist Planungsgrundlage, keine Genehmigung. Über den Netzanschluss entscheidet der Netzbetreiber auf Basis seiner Technischen Anschlussbedingungen (TAB) und der Anschlusszusage. Der BDEW stellt den Bundesmusterwortlaut der TAB bereit, zuletzt als TAB 2026 (veröffentlicht am 31. Juli 2026); verbindlich ist die jeweils örtliche Fassung des Netzbetreibers, und welchen Wortlaut er anwendet, steht in seiner TAB.
 
-Darüber steht die VDE-AR-N 4100, die Technischen Anschlussregeln Niederspannung, die die Bundesnetzagentur als maßgebliches Anschluss-Regelwerk referenziert. Die Themenseite des VDE FNN nennt bereits die Folgeausgabe VDE-AR-N 4100:2026-04. Schon deshalb schreibe ich den verwendeten Regelstand in jede Bilanz hinein. Greifbar wird das beim Spannungsfall: Nach dem Fachartikel „Spannungsfall richtig koordinieren“ („de“ 21/2020) darf der Spannungsfall im Hauptstromversorgungssystem 0,5 % nicht überschreiten; Bezugsgröße ist der Bemessungsstrom der Hausanschlusssicherung, für Wohngebäude mindestens 63 A.
+Darüber steht die VDE-AR-N 4100, die Technischen Anschlussregeln Niederspannung, die die Bundesnetzagentur als maßgebliches Anschluss-Regelwerk referenziert. Gültig ist die Ausgabe VDE-AR-N 4100:2026-04 mit Anwendungsbeginn am 1. April 2026; die bei ihrer Veröffentlichung gültige Vorgängerausgabe darf nach der Norm noch bis zum 1. April 2027 angewendet werden. Welchen Stand Ihr Netzbetreiber verlangt, regelt seine TAB. Deshalb schreibe ich den verwendeten Regelstand in jede Bilanz hinein. Greifbar wird das beim Spannungsfall: Nach dem Fachartikel „Spannungsfall richtig koordinieren“ („de“ 21/2020) darf der Spannungsfall im Hauptstromversorgungssystem 0,5 % nicht überschreiten; Bezugsgröße ist der Bemessungsstrom der Hausanschlusssicherung, mindestens 63 A.
 
 Für die Praxis heißt das: Sprechen Sie Sonderlasten früh an, legen Sie die Bilanz mit nachvollziehbarem Rechenweg vor und lassen Sie sich die Annahmen bestätigen. § 14a EnWG garantiert steuerbaren Verbrauchseinrichtungen zwar den Anschluss, ersetzt aber weder die Anmeldung (laut Praxisratgeber des Bundesverbands Wärmepumpe meldet der Fachbetrieb die Anlage an) noch die Dimensionierung von Hausanschluss und Hauptleitungen.
 
@@ -129,21 +130,32 @@ Ich habe das Modul so aufgebaut, wie ich die Bilanz selbst rechne, nur ohne die 
 
 Sie erfassen Gebäudetyp, Wohneinheiten, Gewerbeflächen mit W/m² und eigener Gleichzeitigkeit, Wärmepumpe mit Heizstab (gleichzeitig oder verriegelt), Lüftung, Klima, Aufzug, Allgemeinstrom, Ladeeinrichtungen, freie Sonderlasten, eine Reserve sowie Photovoltaik in Einspeiserichtung. Die Bedarfskurven aus Anhang A sind hinterlegt: Kurve A mit elektrischer Warmwasserbereitung, Kurve B ohne; den Mischfall bildet das Modul aus Kurve B plus der Kurvendifferenz für die Durchlauferhitzer-Wohnungen.
 
-Das Ergebnis entsteht live: maximale Scheinleistung S_max, Bemessungsstrom, empfohlene NH-Sicherung, Prüfhinweise, Bilanztabelle, Bedarfskurve und der vollständige Rechenweg für die Abstimmung mit dem Netzbetreiber. Bei der Netzbetreiber-Auswahl arbeitet das Modul mit Referenzwerten nach VDE-AR-N 4100 und TAB 2023; verbindlich bleibt die örtliche TAB. Den Bericht exportieren Sie als mehrseitiges Vektor-PDF (A4, Firmenkopf, Unterschriftenzeilen), dazu CSV und JSON.
+Das Ergebnis entsteht live: maximale Scheinleistung S_max, Bemessungsstrom, empfohlene NH-Sicherung, Prüfhinweise, Bilanztabelle, Bedarfskurve und der vollständige Rechenweg für die Abstimmung mit dem Netzbetreiber. Bei der Netzbetreiber-Auswahl arbeitet das Modul mit Referenzwerten nach VDE-AR-N 4100 und dem TAB-Bundesmusterwortlaut; verbindlich bleibt die örtliche TAB. Den Bericht exportieren Sie als mehrseitiges Vektor-PDF (A4, Firmenkopf, Unterschriftenzeilen), dazu CSV und JSON.
 
 Abbildung: Die Ergebniskarte des Moduls: eine Bilanztabelle mit Position, installierter Leistung, Gleichzeitigkeit, Leistungsfaktor und Scheinleistung, darunter der Rechenweg in vier nummerierten Schritten mit den ausgeschriebenen Formeln und eine Liste der herangezogenen Normen. Der Rechenweg steht im Ergebnis, nicht in einer Fußnote. Die Zahlen stammen aus dem kleinen Beispielprojekt der öffentlichen Demo, nicht aus der Beispielrechnung weiter oben.
 
-Ein Revit-Modell ist nicht nötig. Die Bilanz entsteht komplett im Browser und bleibt beim Projekt, direkt neben Stromkreisplanung und Verteilerplan; der Verteilerplan teilt später auf, was die Bilanz bemessen hat. Zwei Grenzen gehören dazu: Die Bilanz bleibt Planungsgrundlage, keine Genehmigung, und ein Lastmanagement ist nicht Teil des Moduls.
+Ein Revit-Modell ist nicht nötig. Die Bilanz entsteht komplett im Browser und bleibt beim Projekt, direkt neben Stromkreisplanung und Verteilerplan; der Verteilerplan teilt später auf, was die Bilanz bemessen hat. Zwei Grenzen gehören dazu: Die Bilanz bleibt Planungsgrundlage, keine Genehmigung, und ein Lastmanagement steuert oder simuliert das Modul nicht. Es kennt es nur als Eingabe: Für die Ladepunkte wählen Sie ohne, statisches oder dynamisches Lastmanagement und tragen die Begrenzung ein, mit der die Bilanz rechnet.
+
+## Welche Anschlusshinweise gibt die Leistungsbilanz zusätzlich aus?
+
+Neben der Rechnung gibt das Modul Hinweise aus, die sich aus VDE-AR-N 4100:2026-04, VDE-AR-N 4105:2026-03 und § 19 NAV ergeben. Sie ersetzen keine Prüfung durch den Netzbetreiber; was er anmelde- und zustimmungspflichtig macht, regelt er in seinen TAB und seinem Netzanschlussportal.
+
+- **Anmeldung und Zustimmung (§ 19 NAV):** Wärmepumpe und Klimageräte meldet das Modul als mitteilungspflichtig, weil sie die vorzuhaltende Leistung erhöhen. Das gilt auch für Durchlauferhitzer und freie Sonderlasten, sobald ein Gerät über 12 kVA liegt. Ladeeinrichtungen sind vor der Inbetriebnahme mitzuteilen, und liegt ihre Summen-Bemessungsleistung über 12 kVA je elektrischer Anlage, brauchen sie vorher die Zustimmung des Netzbetreibers. Weitere zustimmungspflichtige Vorgänge nennt das Modul nicht als feste Schwelle, es verweist auf die TAB und das Netzanschlussportal.
+- **Schieflast (VDE-AR-N 4100:2026-04, 5.6.1 und 5.6.2):** Einphasig geht es bis 4,6 kVA, darüber gehört ein Gerät dreiphasig angeschlossen. Bei einphasigen Ladepunkten über 4,6 kVA warnt das Modul und nennt die Symmetrieeinrichtung als Ausnahme, die beim Netzbetreiber angemeldet sein muss. Eine einphasige Sonderlast zwischen 4,6 und 6,5 kVA bekommt eine Warnung mit der Ausnahme für Kurzzeitbetrieb (etwa ein Durchlauferhitzer darf bis 6,5 kVA auch zwischen zwei Außenleitern liegen), darüber meldet das Modul einen kritischen Hinweis. Dazu kommt die Summenregel: Einphasig angeschlossene Erzeugung, Speicher und Ladeeinrichtungen dürfen zusammen höchstens 4,6 kVA je Außenleiter und je Energieflussrichtung erreichen, mit Symmetrieeinrichtung höchstens 13,8 kVA je Richtung in der Kundenanlage. Weil die Eingabe die Aufteilung auf die Außenleiter nicht kennt, ist das ein Hinweis zum Prüfen bei der Stromkreisplanung, keine Rechnung.
+- **NA-Schutz über 30 kVA (VDE-AR-N 4105:2026-03, 6.1):** Liegt die Wechselrichter-Scheinleistung aus PV und AC-gekoppelten Speichern zusammen über 30 kVA, ist ein zentraler NA-Schutz am zentralen Zählerplatz erforderlich. Ein zweiter Hinweis nennt die Ausnahmen: In die 30 kVA zählen nur Anlagen und Speicher, die ins Netz einspeisen. Speicher ohne Netzeinspeisung und Blockheizkraftwerke oder Brennstoffzellen mit jederzeit zugänglicher Schaltstelle zählen nicht mit; die Bilanz rechnet aber jeden AC-gekoppelten Speicher ein, solche Speicher ziehen Sie selbst ab. Solange noch kein zentraler NA-Schutz vorhanden ist, genügt ein integrierter auch, wenn die AC-Leitung vom Hausanschlusskasten bis zur entferntesten Einheit höchstens 15 m lang ist oder die Spannung für den Spannungssteigerungsschutz am zentralen Zählerplatz gemessen wird, jeweils mit den Bedingungen der Norm.
+- **Anlagenzertifikat (VDE-AR-N 4105:2026-03, 8.4.1):** Für PV weist das Modul auf die Anmeldung als Erzeugungsanlage beim Netzbetreiber hin (VDE-AR-N 4105 im Niederspannungsnetz, VDE-AR-N 4110 bei Mittelspannung) und auf den Eintrag im Marktstammdatenregister. Bis 500 kW kumulierter Wirkleistung am Netzanschlusspunkt und 270 kW vereinbarter Einspeisewirkleistung ist ein Anlagenzertifikat freiwillig.
+
+Für die VDE-AR-N 4105:2026-03 (Anwendungsbeginn 1. März 2026) darf die Vorgängerausgabe noch bis zum 1. März 2027 angewendet werden. Das Modul rechnet und meldet nach den neuen Ausgaben.
 
 ## Häufige Fragen zur Leistungsbilanz
 
 ### Wie berechne ich die Anschlussleistung für 12 Wohneinheiten mit Wärmepumpe und Wallboxen?
 
-Erst die Grundlast, dann jede Sonderlast einzeln. Die Grundlast der 12 Wohneinheiten lesen Sie aus der Bedarfskurve in Anhang A der DIN 18015-1:2020-05 ab, bei zentraler Warmwasserbereitung über die Wärmepumpe aus der Kurve ohne elektrische Warmwasserbereitung. Dazu addieren Sie mit jeweils eigener Gleichzeitigkeit die elektrische Aufnahmeleistung der Wärmepumpe samt Heizstab (gleichzeitig oder verriegelt), die Ladepunkte mit ihrer Ladegleichzeitigkeit beziehungsweise der Grenze des Lastmanagements, Aufzug und Allgemeinstrom sowie eine Reserve. Haushaltsgeräte stecken bereits in der Kurve, Photovoltaik senkt den Bezug nicht. Aus der Summe folgen Bemessungsstrom und Hausanschlusssicherung (mindestens 63 A nach VDE-AR-N 4100); verbindlich ist die Abstimmung mit dem Netzbetreiber nach dessen TAB. Ein durchgerechnetes Beispiel mit allen Annahmen zeigt das [Praxisszenario Leistungsbilanz im Mehrfamilienhaus](https://bimwired.com/landing/wissen/praxisszenario-leistungsbilanz-mfh.html).
+Erst die Grundlast, dann jede Sonderlast einzeln. Die Grundlast der 12 Wohneinheiten lesen Sie aus der Bedarfskurve in Anhang A der DIN 18015-1:2020-05 ab, bei zentraler Warmwasserbereitung über die Wärmepumpe aus der Kurve ohne elektrische Warmwasserbereitung. Dazu addieren Sie mit jeweils eigener Gleichzeitigkeit die elektrische Aufnahmeleistung der Wärmepumpe samt Heizstab (gleichzeitig oder verriegelt), die Ladepunkte mit ihrer Ladegleichzeitigkeit beziehungsweise der Grenze des Lastmanagements, Aufzug und Allgemeinstrom sowie eine Reserve. Haushaltsgeräte stecken bereits in der Kurve, Photovoltaik senkt den Bezug nicht. Aus der Summe folgen Bemessungsstrom und Hausanschlusssicherung (das Hauptstromversorgungssystem ist nach VDE-AR-N 4100 mindestens für 63 A auszulegen, die Größe der Hausanschlusssicherung gibt der Netzbetreiber vor); verbindlich ist die Abstimmung mit dem Netzbetreiber nach dessen TAB. Ein durchgerechnetes Beispiel mit allen Annahmen zeigt das [Praxisszenario Leistungsbilanz im Mehrfamilienhaus](https://bimwired.com/landing/wissen/praxisszenario-leistungsbilanz-mfh.html).
 
 ### Ist die Leistungsbilanz nach DIN 18015-1 für den Netzbetreiber verbindlich?
 
-Nein. Die Bilanz nach DIN 18015-1 ist die anerkannte Planungsgrundlage für Wohngebäude. Über den Netzanschluss entscheidet aber der Netzbetreiber auf Basis seiner Technischen Anschlussbedingungen und der Anschlusszusage. Der BDEW stellt mit der TAB 2023 den Bundesmusterwortlaut bereit; verbindlich ist die örtliche Fassung Ihres Netzbetreibers.
+Nein. Die Bilanz nach DIN 18015-1 ist die anerkannte Planungsgrundlage für Wohngebäude. Über den Netzanschluss entscheidet aber der Netzbetreiber auf Basis seiner Technischen Anschlussbedingungen und der Anschlusszusage. Der BDEW stellt den Bundesmusterwortlaut bereit, zuletzt als TAB 2026; verbindlich ist die örtliche Fassung Ihres Netzbetreibers.
 
 ### Muss ich Herd, Backofen und Waschmaschine als Sonderlast ansetzen?
 
@@ -155,7 +167,7 @@ Nein. Der Bezug wird für den ungünstigsten Fall bemessen, typischerweise die A
 
 ### Reichen 63 A für ein Wohngebäude mit Wallbox und Wärmepumpe?
 
-63 A ist die normative Untergrenze, keine Zusage. Die DIN 18015-1:2020-05 verlangt Zählerplätze für mindestens 63 A, und nach VDE-AR-N 4100 beträgt der Bemessungsstrom der Hausanschlusssicherung für Wohngebäude mindestens 63 A. Ob das mit Wärmepumpe und Ladepunkten reicht, zeigt erst die Leistungsbilanz mit den projektspezifischen Sonderlasten; im Zweifel entscheidet die Abstimmung mit dem Netzbetreiber.
+63 A ist die normative Untergrenze, keine Zusage. Die DIN 18015-1:2020-05 verlangt Zählerplätze für mindestens 63 A, und nach VDE-AR-N 4100 (Abschnitt 6.2.1) ist das Hauptstromversorgungssystem mindestens für 63 A auszulegen; die Größe der Hausanschlusssicherung gibt der Netzbetreiber vor. Ob das mit Wärmepumpe und Ladepunkten reicht, zeigt erst die Leistungsbilanz mit den projektspezifischen Sonderlasten; im Zweifel entscheidet die Abstimmung mit dem Netzbetreiber.
 
 ### Was bedeutet § 14a EnWG für Wärmepumpe und Wallbox in der Bilanz?
 
@@ -170,11 +182,12 @@ Seit dem 1. Januar 2024 gelten neue steuerbare Verbrauchseinrichtungen mit mehr 
 5. Baunormenlexikon: „DIN 18015-1:2020-05“ (Normnachweis): https://www.baunormenlexikon.de/norm/din-18015-1/fc7a1835-4b1f-4165-a6da-d40fee8e0682 (abgerufen am 25.08.2026)
 6. Bundesnetzagentur: „Steuerbare Verbrauchseinrichtungen (§ 14a EnWG)“, Verbraucherportal: https://www.bundesnetzagentur.de/DE/Vportal/Energie/SteuerbareVBE/start.html (abgerufen am 25.08.2026)
 7. Bundesverband Wärmepumpe: „Praxisratgeber § 14a EnWG“, Ausgabe 2026, PDF: https://www.waermepumpe.de/fileadmin/user_upload/Praxisratgeber__14a_2026_WEB.pdf (abgerufen am 25.08.2026)
-8. BDEW: „TAB 2023, Technische Anschlussbedingungen Strom“: https://www.bdew.de/energie/tab-2023/ (abgerufen am 25.08.2026)
+8. BDEW: „TAB 2026, Technische Anschlussbedingungen Niederspannung“: https://www.bdew.de/energie/technische-anschlussbedingungen-niederspannung-tab-2026/ (abgerufen am 11.11.2026)
 9. Bundesnetzagentur, Beschlusskammer 6: „Technische Anschlussregeln Niederspannung (VDE-AR-N 4100)“: https://www.bundesnetzagentur.de/DE/Beschlusskammern/BK06/BK6_92_exLink/VDE-AR-N_4100.html (abgerufen am 25.08.2026)
 10. VDE FNN: „TAR Niederspannung (VDE-AR-N 4100)“: https://www.vde.com/de/fnn/themen/tar/tar-niederspannung (abgerufen am 25.08.2026)
 11. elektrikforum.de: Thread „Dimensionierung Hausanschluss Mehrfamilienhaus“ (Juni 2023): https://www.elektrikforum.de/threads/dimensionierung-hausanschluss-mehrfamilienhaus.43084/ (abgerufen am 25.08.2026)
 12. ElekRechner: „Lastberechnung“ (Rechner nach DIN 18015-1): https://www.elekrechner.com/rechner/last/lastberechnung (abgerufen am 25.08.2026)
+13. VDE-AR-N 4100:2026-04 und VDE-AR-N 4105:2026-03 (Normtexte, nicht frei einsehbar; sinngemäß wiedergegeben, geprüft am 11.11.2026)
 
 ---
 
