@@ -40,7 +40,7 @@ curl -s https://mcp.bimwired.com/mcp -H "Content-Type: application/json" -H "Acc
 
 ## Grenzen
 
-Alle Ergebnisse sind Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Nicht geprüft werden Spannungsfall, Strombelastbarkeit nach Verlegeart und Häufung, Selektivität und Kurzschlussfestigkeit; das bleibt Ingenieurleistung. Je Sitzung und insgesamt gilt eine Obergrenze an Aufrufen pro Minute.
+Alle Ergebnisse sind Planungsgrundlagen mit Normbezug. Verbindlich bleiben die TAB und die Anschlusszusage des Netzbetreibers. Die Werkzeuge dieses Servers prüfen keinen Spannungsfall, keine Strombelastbarkeit nach Verlegeart und Häufung, keine Selektivität und keine Kurzschlussfestigkeit; das bleibt Ingenieurleistung. In der BimWired-Anwendung rechnet der Projektbereich „Nachweise“ (im Pro-Umfang, als vorläufig gekennzeichnet) je Stromkreis überschlägig Spannungsfall, Abschaltbedingung, Überlast und Grenzlänge; das gehört nicht zu diesem Server. Je Sitzung und insgesamt gilt eine Obergrenze an Aufrufen pro Minute.
 
 ## Mitwirken
 
